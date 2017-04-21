@@ -14,6 +14,7 @@ class Login extends CI_Controller {
 		$this->load->model('LoginModel');
 		$this->username=$_POST['username'];
 		$this->password=$_POST['password'];
+		$this->mylist=$_POST['mylist'];
 		
 		$user=$_POST['mylist'];
 		
@@ -29,7 +30,12 @@ class Login extends CI_Controller {
 			'last_name'=>$row[0]->last_name);	
 			$this->load->library('session');
 			$this->session->set_userdata('my_session',$session_array);
-			return redirect('admin/admin_dashboard');
+			if($_POST['mylist']=="admin")
+				return redirect('admin/admin_dashboard');
+			if($_POST['mylist']=="manager")
+				return redirect('manager/manager_dashboard');
+			if($_POST['mylist']=="employee")
+				return redirect('employee/employee_dashboard');
 		}
 		else
 		{	

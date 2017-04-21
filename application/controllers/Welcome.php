@@ -9,14 +9,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('public/homepage',$message);
 		
 	}
-	public function index1()
-	{
 	
-		$this->load->view('login/login');
-		
-	}
-	
-	
-
 	
 }
