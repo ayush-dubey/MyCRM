@@ -18,7 +18,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="POST" class="login-form">
+			                    <form name="loginForm" action="<?php echo base_url('login/check_login');?>"  onsubmit="return validateLoginForm()" method="POST" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
@@ -27,6 +27,14 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
 			                        </div>
+									<div class="form-group">
+										 <select class="form-control" name="mylist" style="height:40px;">
+										 <option value="0">--Sign in as--</option>
+										 <option value="manager">Manager</option>
+										 <option value="employee">Employee</option>
+										 <option value="admin">Admin</option>
+										</select>    
+									</div>
 			                        <button type="submit" class="btn">Sign in!</button>
 			                    </form>
 		                    </div>
