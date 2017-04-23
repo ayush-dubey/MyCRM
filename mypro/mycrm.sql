@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2017 at 05:11 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.21
+-- Generation Time: Apr 23, 2017 at 02:19 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mycrm`
+-- Database: `mycrm1`
 --
 
 -- --------------------------------------------------------
@@ -29,11 +29,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `client` (
   `client_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) NOT NULL,
   `email_id` varchar(100) DEFAULT NULL,
   `mobile` varchar(10) NOT NULL,
-  `status` varchar(15) NOT NULL,
-  `middle_name` varchar(50) DEFAULT NULL
+  `status` varchar(15) NOT NULL DEFAULT 'no status',
+  `address` varchar(1000) DEFAULT NULL,
+  `profession` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -84,23 +86,23 @@ CREATE TABLE `users` (
   `activation_code` varchar(40) DEFAULT NULL,
   `forgotten_password` varchar(40) DEFAULT NULL,
   `remember_code` varchar(40) DEFAULT NULL,
-  `created_on` datetime NOT NULL,
   `last_login` datetime NOT NULL,
   `active` tinyint(1) UNSIGNED NOT NULL,
-  `company` varchar(100) NOT NULL,
-  `mobile` varchar(20) NOT NULL,
-  `ip_address` int(10) UNSIGNED DEFAULT NULL
+  `mobile` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `created_on`, `last_login`, `active`, `company`, `mobile`, `ip_address`) VALUES
-(5, 'amit', '123456', 'amit', 'gupta', 'kumar', '', '1997-02-07', '1997-02-07', 'papa', 'aamir k ghar pe', 'CS', 'amitguptajnv7297@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '8770245897', NULL),
-(6, 'gagan', '123456', 'gagan', 'garg', '', '', '1996-09-24', '2014-09-24', 'rajesh garg', '77,vidhya nagar behind sapna sangeeta indore', 'manager', 'garggagan98@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '7771997372', NULL),
-(8, 'ayush', '123456', 'ayush', 'dubey', '', '', '0000-00-00', '2016-02-10', 'dinesh', '31791', 'manager', 'nidhinimilegi@sachbaat.com', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '7509049805', NULL),
-(9, 'anshul', '123456', 'anshul', 'pathak', '', '', '1996-05-01', '2016-08-24', 'om prakash gupta', '77,vidhya nagar behind sapna sangeeta indore', 'manager', 'yagyapalyadav@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '7771997372', NULL);
+INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `last_login`, `active`, `mobile`) VALUES
+(5, 'amit', '123456', 'amit', 'gupta', 'kumar', '', '1997-02-07', '1997-02-07', 'papa', 'aamir k ghar pe', 'CS', 'amitguptajnv7297@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '8770245897'),
+(6, 'gagan', '123456', 'gagan', 'garg', '', '', '1996-09-24', '2014-09-24', 'rajesh garg', '77,vidhya nagar behind sapna sangeeta indore', 'admin', 'garggagan98@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '7771997372'),
+(8, 'ayush', '123456', 'ayush', 'dubey', '', '', '1996-05-10', '2016-02-10', 'Umashanker Dubey', '31791', 'admin', 'nidhinimilegi@sachbaat.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '7509049805'),
+(15, '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, ''),
+(20, 'qeuwqi', '12345678', 'fkocnh', 'kcnsioo', 'odfhciwon', '', '2017-12-31', '2017-12-31', 'asdcd', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'daskjjdqwpi@awjdoewj.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410'),
+(21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9644614111'),
+(22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410');
 
 --
 -- Indexes for dumped tables
@@ -148,7 +150,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Constraints for dumped tables
 --

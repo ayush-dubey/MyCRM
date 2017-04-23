@@ -98,8 +98,6 @@
 	 padding-right: 60px;
     padding-left: 60px;
 }
-.login-img{
-	background-image:url("<?php echo base_url("assets/img/my.jpg");?>");
-	background-repeat: no-repeat;
-
+.bckclr{
+	background-color:#2e2e2e !important;
 }

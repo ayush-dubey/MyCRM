@@ -1,7 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Admin Panel</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url('css/bootstrap.min.css');?>" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url('css/sb-admin.css');?>" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="<?php echo base_url('css/morris.css');?>" rel="stylesheet">
+
+    <!-- Custom Fonts -->	
+    <link href="<?php echo base_url('fonts/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -36,7 +61,7 @@
                                 <div class="media">
                                     
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>gg</strong>
+                                        <h5 class="media-heading"><strong>acsc</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -77,7 +102,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="fa fa-user" ></i> <?php $row=$this->session->userdata('my_session'); echo $row['first_name']; echo "  "; echo $row['last_name']; ?> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="fa fa-user" ></i>&nbsp;&nbsp;&nbsp;<?php $row=$this->session->userdata('my_session'); echo $row['first_name']; echo "  "; echo $row['last_name']; ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -90,7 +115,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url('login/logout')  ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url('controller_model/logout')  ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -137,7 +162,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Dashboard <small align="centre">Statistics Overview</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -418,5 +443,5 @@
 		
 		
 
-
+<?php include('admin_footer.php'); ?>
 

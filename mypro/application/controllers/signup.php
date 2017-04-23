@@ -54,7 +54,7 @@ class Signup extends CI_Controller {
 		 
 				$this->username=$_POST['username'];
 				$this->role=$_POST['user'];
-				$this->password=$_POST['password'];
+				$this->password= password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
 				$this->first_name=$_POST['first_name'];
 				$this->middle_name=$_POST['middle_name'];
 				$this->last_name=$_POST['last_name'];
@@ -64,8 +64,17 @@ class Signup extends CI_Controller {
 				$this->father_name=$_POST['fname'];
 				$this->mobile=$_POST['mobile'];
 				$this->email=$_POST['email'];
-				$this->address=$_POST['address'];
-
+				//$this->address=$_POST['address'];
+				      
+				$addr1=$_POST['address1'];
+				$addr2=$_POST['address2'];
+				$city=$_POST['city'];
+				$pincode=$_POST['pincode'];
+				$state=$_POST['state'];
+				$this->address = ''.$addr1.'  '.$addr2.'  '.$city.'  ('.$pincode.')  '.$state;
+				
+				
+				
 
 				$this->SignupModel->insert_users($this);
 
