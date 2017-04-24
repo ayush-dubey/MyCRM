@@ -7,9 +7,32 @@
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+       url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), 
+       url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+       url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+.box1 {
+	display: inline-block;
+	width: 15%;
+	padding:5px .5em;
+	background:rgba(238, 238, 238, 0.26);
+	margin: .5em 1% .5em 0;
+	text-align: left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size:13px;
+}
+.fontawesome-icon-list a i {
+    margin-right:10px;
+    font-size:25px;
+    color:#757575;
+}
+.margin-top{
+	margin-top:20px;
 }
 .fa {
   display: inline-block;
@@ -238,7 +261,10 @@
   content: "\f010";
 }
 .fa-power-off:before {
-  content: "\f011";
+  content: "\f011" !important;
+}
+.pull-left1:before{
+	content:"\f0e7";
 }
 .fa-signal:before {
   content: "\f012";
@@ -555,9 +581,6 @@
 .fa-arrows-h:before {
   content: "\f07e";
 }
-.fa-bar-chart-o:before {
-  content: "\f080";
-}
 .fa-twitter-square:before {
   content: "\f081";
 }
@@ -769,7 +792,7 @@
   content: "\f0d5";
 }
 .fa-money:before {
-  content: "\f0d6";
+  content: "\f156";
 }
 .fa-caret-down:before {
   content: "\f0d7";
@@ -1091,7 +1114,7 @@
   content: "\f144";
 }
 .fa-ticket:before {
-  content: "\f145";
+  content:"\f080";
 }
 .fa-minus-square:before {
   content: "\f146";
@@ -1335,4 +1358,10 @@
 }
 .fa-plus-square-o:before {
   content: "\f196";
+}
+.fa-bar-chart:before {
+    content: "\f080";
+}
+.fa-send-o:before, .fa-paper-plane-o:before {
+    content: "\f1d9";
 }

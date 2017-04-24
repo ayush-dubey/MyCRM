@@ -6,10 +6,19 @@ class Employee extends CI_Controller {
 	
 	public function employee_dashboard()
 	{
-		  $this->load->view('employee/employee_header');	
+		  if($this->session->userdata('my_session')!="")
+	    {
+		 $this->load->view('employee/employee_header');	
 		 // $this->load->view('employee/employee_page');
 		  $this->load->view('employee/employee_footer');
-		  
+
+		}
+		else
+		{
+			return redirect('login');
+		}		 
+		 
+		 
 	}
     public function settings()
 	{

@@ -7,9 +7,17 @@ class Admin extends CI_Controller {
 	
 	public function admin_dashboard()
 	{
+		  if($this->session->userdata('my_session')!="")
+	    {
+			$this->load->view('admin/admin_page');
+		}
+		else
+		{
+			return redirect('login');
+		}		 
 		 
-		  $this->load->view('admin/admin_page');
-		  
+		 
+		
 		  
 	}
     public function settings()
