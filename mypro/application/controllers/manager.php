@@ -9,7 +9,7 @@ class Manager extends CI_Controller {
 		if($this->session->userdata('my_session')!="")
 	    {
 			$this->load->view('manager/manager_header');	
-				  //$this->load->view('manager/manager_page');
+				  $this->load->view('manager/manager_page');
 			$this->load->view('manager/manager_footer');
 		}
 		else

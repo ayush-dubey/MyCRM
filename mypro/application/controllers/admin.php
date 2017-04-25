@@ -15,11 +15,11 @@ class Admin extends CI_Controller {
 		{
 			return redirect('login');
 		}		 
-		 
-		 
-		
-		  
+  
 	}
+	
+	
+	
     public function settings()
 	{
 		$this->load->view('admin/admin_header');	

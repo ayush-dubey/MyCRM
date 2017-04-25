@@ -1,4 +1,4 @@
-<?php include('admin_header.php'); ?>
+<?php include('manager_header.php'); ?>
 	<body class="no-skin">
 		<div id="navbar" class="navbar navbar-default ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
@@ -303,13 +303,6 @@
 										Profile
 									</a>
 								</li>
-								
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-random"></i>
-										Change Password
-									</a>
-								</li>
 
 								<li class="divider"></li>
 
@@ -578,13 +571,18 @@
 						</a>
 
 						<b class="arrow"></b>
-					</li>			
-					<li class="">						
+					</li>
+					
+					
+
+					<li class="">
+						
+
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="#">
+								<a href="profile.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									User Profile
 								</a>
@@ -815,4 +813,4 @@
 						</div><!-- /.page-header -->
 				</div>
 			</div><!-- /.main-content -->
-			<?php include('admin_footer.php'); ?>
+			<?php include('manager_footer.php'); ?>
