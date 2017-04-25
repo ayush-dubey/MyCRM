@@ -8,21 +8,9 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
-		if($this->session->userdata('my_session')=="")
-		{
 			$message['msg']="";
 			$this->load->view('login/login',$message);
-		}
-		else
-		{ 
-				$row=$this->session->userdata('my_session');	
-					if($row['role']=="admin")
-						return redirect('admin/admin_dashboard');
-					if($row['role']=="manager")
-						return redirect('manager/manager_dashboard');
-					if($row['role']=="employee")
-						return redirect('employee/employee_dashboard');
-		}	
+			
 	}
 	public function check_login()
 	{
@@ -52,8 +40,10 @@ class Login extends CI_Controller {
 				
 				//session begins
 				
-				$session_array=array('first_name'=>$row[0]->first_name,
-				'last_name'=>$row[0]->last_name,'role'=>$row[0]->role);	
+				$session_array=array('username'=>$row[0]->username, 'first_name'=>$row[0]->first_name,'middle_name'=>$row[0]->middle_name,
+				'last_name'=>$row[0]->last_name,'gender'=>$row[0]->gender,'dob'=>$row[0]->dob ,'doj'=>$row[0]->doj,'role'=>$row[0]->role,
+				'father_name'=>$row[0]->father_name,'address'=>$row[0]->address,'last_login'=>$row[0]->last_login,'email'=>$row[0]->email,
+				'mobile'=>$row[0]->mobile);	
 				$this->load->library('session');
 				$this->session->set_userdata('my_session',$session_array);
 				

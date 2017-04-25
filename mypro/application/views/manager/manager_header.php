@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta charset="utf-8" />
-		<title>Dashboard - Ace Admin</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CRM</title>
+	
+	<!-- core CSS -->
+    <link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/font-awesome.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/animate.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/prettyPhoto.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/main.css'); ?>" rel="stylesheet">
 
-		<meta name="description" content="overview &amp; stats" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="<?php echo base_url('css/responsive.css'); ?>" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="<?php echo base_url('js/html5shiv.js'); ?>"></script>
+    <script src="<?php echo base_url('js/respond.min.js'); ?>"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="<?php echo base_url('images/ico/favicon.ico'); ?>">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url('images/ico/apple-touch-icon-144-precomposed.png'); ?>">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url('images/ico/apple-touch-icon-114-precomposed.png'); ?>">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url('images/ico/apple-touch-icon-72-precomposed.png'); ?>">
+    <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('images/ico/apple-touch-icon-57-precomposed.png'); ?>">
+	 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/jquery.prettyPhoto.js'); ?>"></script>
+    <script src="<?php echo base_url('js/jquery.isotope.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/main.js'); ?>"></script>
+    <script src="<?php echo base_url('js/wow.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/myjs.js'); ?>"></script>
+</head><!--/head-->
+<body class="homepage">
 
-		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="<?php echo base_url('assets1/css/bootstrap.min.css');?>" />
-		<link rel="stylesheet" href="<?php echo base_url('assets1/font-awesome/4.5.0/css/font-awesome.min.css');?>" />
-
-		<!-- page specific plugin styles -->
-
-		<!-- text fonts -->
-		<link rel="stylesheet" href="<?php echo base_url('assets1/css/fonts.googleapis.com.css');?>" />
-
-		<!-- ace styles -->
-		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace.min.css');?>" class="ace-main-stylesheet" id="main-ace-style" />
-
-		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-part2.min.css');?>" class="ace-main-stylesheet" />
-		<![endif]-->
-		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-skins.min.css');?>" />
-		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-rtl.min.css');?>" />
-
-		<!--[if lte IE 9]>
-		  <link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-ie.min.css');?>" />
-		<![endif]-->
-
-		<!-- inline styles related to this page -->
-
-		<!-- ace settings handler -->
-		<script src="<?php echo base_url('assets1/js/ace-extra.min.js');?>"></script>
-
-		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
-		<!--[if lte IE 8]>
-		<script src="<?php echo base_url('assets1/js/html5shiv.min.js');?>"></script>
-		<script src="<?php echo base_url('assets1/js/respond.min.js');?>"></script>
-		<![endif]-->
-	</head>
+    <header id="header">
+        
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo base_url();?>">CRM</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+						<li style="color:white; margin-top:7px;"> Welcome <?php $row=$this->session->userdata('my_session'); echo $row['first_name']; echo "  "; echo $row['last_name']; ?></li>                        
+                        <li><a href="<?php echo base_url('admin/settings');?>">Settings</a></li>
+                        <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->

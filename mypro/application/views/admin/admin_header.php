@@ -25,7 +25,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-skins.min.css');?>" />
 		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-rtl.min.css');?>" />
-
+		<link href="<?php echo base_url('css1/custom.css'); ?>" rel="stylesheet">
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-ie.min.css');?>" />
 		<![endif]-->
@@ -40,5 +40,6 @@
 		<!--[if lte IE 8]>
 		<script src="<?php echo base_url('assets1/js/html5shiv.min.js');?>"></script>
 		<script src="<?php echo base_url('assets1/js/respond.min.js');?>"></script>
+		<script src="<?php echo base_url('js/myjs.js');?>" type="text/javascript"></script>
 		<![endif]-->
 	</head>

@@ -6,10 +6,11 @@ class Manager extends CI_Controller {
 	public function manager_dashboard()
 	{	
 		
-		if($this->session->userdata('my_session')!="")
+		$row=$this->session->userdata('my_session');	
+		if($row['role']=="manager")
 	    {
 			$this->load->view('manager/manager_header');	
-				  $this->load->view('manager/manager_page');
+				  //$this->load->view('manager/manager_page');
 			$this->load->view('manager/manager_footer');
 		}
 		else

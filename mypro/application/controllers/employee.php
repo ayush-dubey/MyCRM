@@ -6,7 +6,8 @@ class Employee extends CI_Controller {
 	
 	public function employee_dashboard()
 	{
-		  if($this->session->userdata('my_session')!="")
+		$row=$this->session->userdata('my_session');	
+		if($row['role']=="employee")
 	    {
 		 $this->load->view('employee/employee_header');	
 		 // $this->load->view('employee/employee_page');

@@ -30,6 +30,26 @@ function validateInsertForm()
 
 	  
 }
+function updatePassword()
+{
+	var x = document.changePassword;
+	if(x.old_pswd.value.length<6)
+    {
+    	alert("please enter a valid password");
+    	return false;
+    }
+	if(x.new_pswd.value.length<6)
+    {
+    	alert("password should be atleast 6 characters");
+    	return false;
+    }
+	if(x.new_pswd.value!=x.new_pswd1.value)
+    {
+    	alert("passwords dosen't match");
+    	return false;
+    }
+	
+}
 
 	
 	

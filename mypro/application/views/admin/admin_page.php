@@ -298,14 +298,14 @@
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url("admin/update");?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>
 								</li>
 								
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url("admin/change_password");?>">
 										<i class="ace-icon fa fa-random"></i>
 										Change Password
 									</a>
@@ -387,7 +387,7 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('admin/resgister_leads');?>" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Leads
 									

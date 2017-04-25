@@ -5,10 +5,16 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$message['msg']="";
-		$this->load->view('public/homepage',$message);
+		
+		$this->load->view('public/homepage');
 		
 	}
+	public function index2()
+	{
+		$this->load->view('admin_page');
+		
+	}
+	
 	
 	
 }

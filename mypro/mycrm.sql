@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2017 at 02:19 PM
+-- Generation Time: Apr 25, 2017 at 07:45 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -31,12 +31,20 @@ CREATE TABLE `client` (
   `first_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) NOT NULL,
-  `email_id` varchar(100) DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `mobile` varchar(10) NOT NULL,
   `status` varchar(15) NOT NULL DEFAULT 'no status',
   `address` varchar(1000) DEFAULT NULL,
-  `profession` int(100) DEFAULT NULL
+  `profession` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `first_name`, `middle_name`, `last_name`, `gender`, `email`, `mobile`, `status`, `address`, `profession`) VALUES
+(1, 'Raju', '', 'asd', 'female', 'asmk@asd.com', '9638', 'no status', 'djfpc  fnodsnc  indore  (452001)  Madhya Pradesh', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,7 +84,7 @@ CREATE TABLE `users` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) DEFAULT NULL,
-  `gender` enum('male, female') NOT NULL,
+  `gender` varchar(50) NOT NULL,
   `dob` date NOT NULL,
   `doj` date NOT NULL,
   `father_name` varchar(50) NOT NULL,
@@ -88,21 +96,19 @@ CREATE TABLE `users` (
   `remember_code` varchar(40) DEFAULT NULL,
   `last_login` datetime NOT NULL,
   `active` tinyint(1) UNSIGNED NOT NULL,
-  `mobile` varchar(20) NOT NULL
+  `mobile` varchar(20) NOT NULL,
+  `manager_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `last_login`, `active`, `mobile`) VALUES
-(5, 'amit', '123456', 'amit', 'gupta', 'kumar', '', '1997-02-07', '1997-02-07', 'papa', 'aamir k ghar pe', 'CS', 'amitguptajnv7297@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '8770245897'),
-(6, 'gagan', '123456', 'gagan', 'garg', '', '', '1996-09-24', '2014-09-24', 'rajesh garg', '77,vidhya nagar behind sapna sangeeta indore', 'admin', 'garggagan98@gmail.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '7771997372'),
-(8, 'ayush', '123456', 'ayush', 'dubey', '', '', '1996-05-10', '2016-02-10', 'Umashanker Dubey', '31791', 'admin', 'nidhinimilegi@sachbaat.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '7509049805'),
-(15, '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, ''),
-(20, 'qeuwqi', '12345678', 'fkocnh', 'kcnsioo', 'odfhciwon', '', '2017-12-31', '2017-12-31', 'asdcd', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'daskjjdqwpi@awjdoewj.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410'),
-(21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9644614111'),
-(22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410');
+INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `last_login`, `active`, `mobile`, `manager_id`) VALUES
+(21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9644614111', 0),
+(22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-24 05:35:50', 0, '9638527410', 0),
+(23, 'ayush', '$2y$12$9tgVwhCKaccDPxKbVb95X.7R7Hp4dO7atDE/noUpliFGtUVPvujCC', 'Ayush', 'Dubey', '', 'male', '1996-05-10', '2017-02-24', 'Umashanker', 'Navlakha Indore', 'admin', 'ayushdb@gmail.com', NULL, NULL, NULL, '2017-04-25 11:06:17', 0, '9644614111', 0),
+(24, 'amit', '$2y$12$RhRmjp2xH3rTS8aleq5v7uJIfC2qMVM/nN0j.eKo01SFXs/2fKDLa', 'Amit', 'Gupta', '', 'male', '1997-02-07', '2017-12-31', 'wsfqw', 'djfpc  fnodsnc  indore  (452001)  Mizoram', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410', 0);
 
 --
 -- Indexes for dumped tables
@@ -145,12 +151,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Constraints for dumped tables
 --

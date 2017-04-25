@@ -8,12 +8,12 @@
     <title>CRM</title>
 	
 	<!-- core CSS -->
-    <link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/font-awesome.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/animate.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/prettyPhoto.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/main.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/custom.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/font-awesome.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/animate.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/prettyPhoto.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/main.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css1/custom.css'); ?>" rel="stylesheet">
 	
 
     <link href="<?php echo base_url('css/responsive.css'); ?>" rel="stylesheet">
@@ -79,7 +79,7 @@
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo base_url('welcome');?>">Home</a></li>
+                        <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Services</a></li>
 						
@@ -90,7 +90,7 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-	  <form name="loginForm" action="<?php echo base_url('login/check_login');?>" method="post" onsubmit="return validateLoginForm()">
+	  <form name="loginForm" action="<?php echo base_url('controller_model/login');?>" method="post" onsubmit="return validateLoginForm()">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
