@@ -10,16 +10,15 @@ class Admin extends CI_Controller {
 		$row=$this->session->userdata('my_session');	
 		  if($row['role']=="admin")
 	    {
+			$this->load->view('admin/admin_header');
 			$this->load->view('admin/admin_page');
+			$this->load->view('admin/admin_footer');
 		}
 		else
 		{
 			return redirect('login');
 		}		 
-		 
-		 
-		
-		  
+  
 	}
 	public function update()
 	{
@@ -67,14 +66,12 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/change_password');
 		}
 	}
-	public function resgister_leads()
+	public function register_leads()
 	{
 		$this->load->view('admin/admin_header');
 			$this->load->view('leads/leads');
 		$this->load->view('admin/admin_footer');
 	}
-	
-	
-   
+
 }
 

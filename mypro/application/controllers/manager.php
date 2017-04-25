@@ -10,7 +10,7 @@ class Manager extends CI_Controller {
 		if($row['role']=="manager")
 	    {
 			$this->load->view('manager/manager_header');	
-				  //$this->load->view('manager/manager_page');
+			$this->load->view('manager/manager_page');
 			$this->load->view('manager/manager_footer');
 		}
 		else
