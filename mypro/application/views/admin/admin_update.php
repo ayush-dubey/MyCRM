@@ -2,12 +2,12 @@
 <div class="container">
 	
 	
-<form name="updateForm" class="form-horizontal" action="<?php echo base_url('admin/update_profile'); ?>"  onsubmit="return validateInsertForm()" method="POST">
+<form name="updateProfileForm" class="form-horizontal" action="<?php echo base_url('admin/update_profile'); ?>"  onsubmit="return validateUpdateProfileForm()" method="POST">
 <div class="myjumbo" >
   <div class="form-group">
       <label class="control-label col-sm-4">Role:</label>
 	  <div class="col-sm-6">
-       <input type="text" name="role" class="form-control"   value="<?php $row=$this->session->userdata('my_session');echo $row['role'];?>" readonly>
+         <p><?php $row=$this->session->userdata('my_session');echo $row['role'];?></p>
 		</div>
     </div>
 	<div class="form-group">

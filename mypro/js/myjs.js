@@ -6,7 +6,7 @@ function validateInsertForm()
     	alert("must select one option");
     	return false;
     }
-      if(x.mobile.value.length!=10)
+    if(x.mobile.value.length!=10)
     {
     	alert("invalid mobile number");
     	return false;
@@ -75,3 +75,33 @@ function validateLoginForm()
 	  }
       
 }
+ function validateLeadRegisterForm()
+ {
+	var x=document.leadRegisterForm;
+	if(x.mobile.value.length!=10)
+    {
+    	alert("invalid mobile number");
+    	return false;
+    }
+	
+	if(isNaN(x.mobile.value))
+   	{
+   		alert("please enter digits in mobile field");
+    	return false;
+    }
+ }
+ 
+ function validateUpdateProfileForm()
+ {
+	 var x=document.updateProfileForm;
+	 if(x.mobile.value.length!=10)
+    {
+    	alert("invalid mobile number");
+    	return false;
+    }
+    if(isNaN(x.mobile.value))
+   	{
+   		alert("please enter digits in mobile field");
+    	return false;
+    }
+ }
