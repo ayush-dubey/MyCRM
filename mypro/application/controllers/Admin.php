@@ -77,7 +77,25 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/admin_header');
 			$this->load->view('leads/leads_excel');
 		$this->load->view('admin/admin_footer');	
-	}	
+	}
+	/*public function viewLeads()
+	{
+		$this->load->view('admin/admin_header');
+			$this->load->view('admin/viewLeads');
+		$this->load->view('admin/admin_footer');	
+	}*/
+	public function viewLeads()
+	{
+		$data   = array();
+        $this->load->model('LeadModel');
+        $this->load->helper('url');
+        //$this->load->library('acl');
+        $data['result'] = $this->LeadModel->get_leads();
+        
+		$this->load->view('admin/admin_header');
+			$this->load->view('admin/viewLeads', $data);
+		$this->load->view('admin/admin_footer');
+	}
 
 
 }

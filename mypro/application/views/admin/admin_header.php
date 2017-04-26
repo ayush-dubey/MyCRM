@@ -469,7 +469,7 @@
 									Disposed Fetch Trial
 									
 								</a>							
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('admin/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Leads
 									<b class="arrow"></b>
