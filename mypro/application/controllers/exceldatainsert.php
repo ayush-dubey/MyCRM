@@ -6,7 +6,7 @@ class ExcelDataInsert extends CI_Controller
 	public function __construct() {
         parent::__construct();
                 $this->load->library('excel');//load PHPExcel library 
-		$this->load->model('upload_model');//To Upload file in a directory
+		//$this->load->model('upload_model');//To Upload file in a directory
                 $this->load->model('excel_data_insert_model');
 	}	
 	
@@ -34,11 +34,16 @@ class ExcelDataInsert extends CI_Controller
           for($i=2;$i<=$totalrows;$i++)
           {
               $FirstName= $objWorksheet->getCellByColumnAndRow(0,$i)->getValue();			
-              $LastName= $objWorksheet->getCellByColumnAndRow(1,$i)->getValue(); //Excel Column 1
-			  $Email= $objWorksheet->getCellByColumnAndRow(2,$i)->getValue(); //Excel Column 2
-			  $Mobile=$objWorksheet->getCellByColumnAndRow(3,$i)->getValue(); //Excel Column 3
-			  $Address=$objWorksheet->getCellByColumnAndRow(4,$i)->getValue(); //Excel Column 4
-			  $data_user=array('FirstName'=>$FirstName, 'LastName'=>$LastName ,'Email'=>$Email ,'Mobile'=>$Mobile , 'Address'=>$Address);
+              $MiddleName= $objWorksheet->getCellByColumnAndRow(1,$i)->getValue(); //Excel Column 1
+			  
+			  $LastName= $objWorksheet->getCellByColumnAndRow(2,$i)->getValue(); //Excel Column 2
+			  $Gender=$objWorksheet->getCellByColumnAndRow(3,$i)->getValue(); //Excel Column 3
+			  $Email=$objWorksheet->getCellByColumnAndRow(4,$i)->getValue();//Excel Column 4
+			  $Mobile=$objWorksheet->getCellByColumnAndRow(5,$i)->getValue();
+			  $Address=$objWorksheet->getCellByColumnAndRow(6,$i)->getValue();
+			  $Profession=$objWorksheet->getCellByColumnAndRow(7,$i)->getValue();
+			  $data_user=array('FirstName'=>$FirstName, 'LastName'=>$LastName ,'MiddleName'=>$MiddleName,'Gender'=>$Gender,
+			  'Email'=>$Email ,'Mobile'=>$Mobile , 'Address'=>$Address,'Profession'=>$Profession);
 			  $this->excel_data_insert_model->Add_User($data_user);
               
 						  

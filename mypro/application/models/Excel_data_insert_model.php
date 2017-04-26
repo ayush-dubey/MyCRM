@@ -6,10 +6,12 @@ class Excel_data_insert_model extends CI_Model {
         
     }
 	
-public function Add_User($data_user){
-$this->db->insert('user', $data_user);
+public function Add_User($data)
+	{
+		$this->db->query("insert into leads(first_name,middle_name,last_name,gender,email,mobile,address,profession) 
+		values('".$data->FirstName."','".$data->MiddleName."','".$data->LastName."','".$data->Gender."','".$data->Email."',
+		'".$data->Mobile."','".$data->Address."','".$data->Profession."')");
    }
-  
 	
 }
  

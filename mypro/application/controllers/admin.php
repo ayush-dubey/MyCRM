@@ -72,6 +72,13 @@ class Admin extends CI_Controller {
 			$this->load->view('leads/leads');
 		$this->load->view('admin/admin_footer');
 	}
+	public function importLeads()
+	{
+		$this->load->view('admin/admin_header');
+			$this->load->view('leads/leads_excel');
+		$this->load->view('admin/admin_footer');	
+	}	
+
 
 }
 
