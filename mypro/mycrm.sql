@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2017 at 07:45 PM
+-- Generation Time: Apr 26, 2017 at 11:26 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -107,7 +107,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `last_login`, `active`, `mobile`, `manager_id`) VALUES
 (21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9644614111', 0),
 (22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-24 05:35:50', 0, '9638527410', 0),
-(23, 'ayush', '$2y$12$9tgVwhCKaccDPxKbVb95X.7R7Hp4dO7atDE/noUpliFGtUVPvujCC', 'Ayush', 'Dubey', '', 'male', '1996-05-10', '2017-02-24', 'Umashanker', 'Navlakha Indore', 'admin', 'ayushdb@gmail.com', NULL, NULL, NULL, '2017-04-25 11:06:17', 0, '9644614111', 0),
+(23, 'ayush', '$2y$12$18cy5FUyBEIy76ptj3EtXundTVAloi7YGMeWL1O7XviyNsfV.gzai', 'Ayush', 'Dubey', '', 'male', '1996-05-10', '2017-02-24', 'Umashanker', 'Navlakha Indore', 'admin', 'ayushdb@gmail.com', NULL, NULL, NULL, '2017-04-26 02:12:17', 0, '9644614111', 0),
 (24, 'amit', '$2y$12$RhRmjp2xH3rTS8aleq5v7uJIfC2qMVM/nN0j.eKo01SFXs/2fKDLa', 'Amit', 'Gupta', '', 'male', '1997-02-07', '2017-12-31', 'wsfqw', 'djfpc  fnodsnc  indore  (452001)  Mizoram', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410', 0);
 
 --
