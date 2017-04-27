@@ -66,6 +66,10 @@
 .year,.branch{
 	width: 120px;
 }
+.state{
+	
+	width:250px;
+}
 .student{
 	color: navy blue;
 	font-size: 25px;

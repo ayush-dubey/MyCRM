@@ -17,10 +17,6 @@
         <input type="text" name="last_name" class="form-control" placeholder=" last name" required>
       </div>
     </div>
-    
-	
-     
-	
     <div class="form-group">
       <label class="control-label col-sm-4 required">Gender:  </label>
       <div class="col-sm-6">          
@@ -68,7 +64,7 @@
 	<div class="form-group">
 		<label class="control-label col-sm-4 ">State</label>
       <div class="col-sm-6">          
-         <select class="form-control branch" name="state">
+         <select class="form-control state" name="state">
 			 <option value="0">--State--</option>
 			 <option value="Andhra Pradesh">Andhra Pradesh</option>
 			 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
