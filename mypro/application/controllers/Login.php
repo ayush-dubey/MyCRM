@@ -60,6 +60,7 @@ class Login extends CI_Controller {
 				
 			   $message['msg']="invalid username or password";
 				$this->load->view('login/login',$message);
+				//return redirect('login/index',$message);
 			  
 			}
 		}	

@@ -437,7 +437,7 @@
 									
 									</a>	
 
-								<a href="<?php echo base_url('leads/distribute_leads');?>" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/show_distributed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Distribute Leads
 									
@@ -558,11 +558,11 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url('admin/comment_history');?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
-								Timeline
+								Comment History
 							</span>
 						</a>
 						<b class="arrow"></b>

@@ -77,7 +77,7 @@ class Leads extends CI_Controller {
 			$row=$row->result();
 			$data['mydata']=$row[0];
 			$this->load->view('admin/admin_header');
-			$this->load->view('leads/update_disposed_leads',$data);
+			$this->load->view('leads/update_disposed',$data);
 			$this->load->view('admin/admin_footer');
 		}
 	}
@@ -250,6 +250,49 @@ class Leads extends CI_Controller {
 			$this->load->view('leads/view_distributed_leads', $data);
 		$this->load->view('admin/admin_footer');
 		
+	}
+	public function update_disposed()
+	{
+		if($_POST['client_id']=="")
+		{
+		   	return redirect('admin/viewLeads');
+		}
+		else
+		{	
+			$this->load->model('LeadModel');
+			
+			$this->first_name=$_POST['first_name'];
+			$this->middle_name=$_POST['middle_name'];
+			$this->last_name=$_POST['last_name'];
+			$this->gender=$_POST['gender'];
+			$this->mobile=$_POST['mobile'];
+			$this->email=$_POST['email'];
+			$this->address=$_POST['address'];
+			$this->status=$_POST['status'];
+			$this->client_id=$_POST['client_id'];
+			$this->follow_up_date=$_POST['follow_up_date'];
+			$this->comment=$_POST['comment'];
+			
+			date_default_timezone_set("Asia/Kolkata");
+			$date_today= date("Y-m-d");
+			if(strcasecmp($status,'pending')==0 || strcasecmp($status,'converted')==0)
+			{
+				$this->LeadModel->update_dipose_to_client($this);
+			}
+				
+			$this->LeadModel->update_leads($this,$date_today);
+			$this->session->set_flashdata('update','Updated successfully...');
+			return redirect('admin/viewLeads');
+			
+		}	
+	}
+	public function unassign_lead()
+	{
+		$client_id=$_POST['client_id'];
+		$this->load->model('DistributeLead');
+		$this->DistributeLead->unassign_lead($client_id);
+		$this->session->set_flashdata('unassign','Lead Unassigned...');
+		return redirect('Leads/show_distributed_leads');
 	}
    
 }

@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Dashboard - Ace Admin</title>
+		<title>Dashboard - Manager</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -40,8 +40,8 @@
 		<!--[if lte IE 8]>
 		<script src="<?php echo base_url('assets1/js/html5shiv.min.js');?>"></script>
 		<script src="<?php echo base_url('assets1/js/respond.min.js');?>"></script>
-		<script src="<?php echo base_url('js/myjs.js');?>" type="text/javascript"></script>
 		<![endif]-->
+		<script src="<?php echo base_url('js/myjs.js');?>" type="text/javascript"></script>
 	</head>
 	<body class="no-skin">
 		<div id="navbar" class="navbar navbar-default ace-save-state">
@@ -342,14 +342,14 @@
 								</li>
 
 								<li>
-									<a href="<?php echo base_url("admin/update");?>">
+									<a href="<?php echo base_url("manager/update");?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>
 								</li>
 								
 								<li>
-									<a href="<?php echo base_url("admin/change_password");?>">
+									<a href="<?php echo base_url("manager/change_password");?>">
 										<i class="ace-icon fa fa-random"></i>
 										Change Password
 									</a>
@@ -412,7 +412,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
+						<a href="<?php echo base_url('manager/manager_dashboard');?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -431,19 +431,19 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('admin/resgister_leads');?>" class="dropdown-toggle">
+									<a href="<?php echo base_url('manager/register_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Leads
 									
-								</a>	
+									</a>	
 
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/distribute_leads');?>" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									New Leads
+									Distribute Leads
 									
 								</a>	
 
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/todays_followup');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Todays Follow up
 									
@@ -460,17 +460,16 @@
 									Past Free Trial
 									
 								</a>								
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('manager/importLeads');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
-									Auto Fetch Trial
-									
+									Auto Fetch Leads									
 								</a>								
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Disposed Fetch Trial
+									Disposed Fetch Leads
 									
 								</a>							
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('manager/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Leads
 									<b class="arrow"></b>
@@ -487,22 +486,22 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_active_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Active clients
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_expired_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Expire clients
+									Expired clients
 								</a>
 
 								<b class="arrow"></b>
 							</li>											
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_hold_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Hold clients
 								</a>
@@ -510,7 +509,7 @@
 								<b class="arrow"></b>
 							</li>						
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('manager/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -559,11 +558,11 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url('manager/comment_history');?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
-								Timeline
+								Comment History
 							</span>
 						</a>
 						<b class="arrow"></b>
@@ -607,3 +606,65 @@
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 				</div>
 			</div>
+			
+	
+
+
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="<?php echo base_url('manager/manager_dashboard');?>">Home</a>
+							</li>
+							<li class="active">Dashboard</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="ace-settings-container" id="ace-settings-container">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+								<i class="ace-icon fa fa-cog bigger-130"></i>
+							</div>
+
+							<div class="ace-settings-box clearfix" id="ace-settings-box">
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<div class="pull-left">
+											<select id="skin-colorpicker" class="hide">
+												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+											</select>
+										</div>
+										<span>&nbsp; Choose Skin</span>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+									</div>
+									<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+									</div>
+								</div><!-- /.pull-left -->
+								</div><!-- /.pull-left -->
+								
+							</div><!-- /.ace-settings-box -->
+						</div><!-- /.ace-settings-container -->
+
+				
+			

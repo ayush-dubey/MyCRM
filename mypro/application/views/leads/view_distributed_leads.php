@@ -1,4 +1,5 @@
 <div class="container">
+<p style="color:red;"><?php print_r($this->session->flashdata('unassign'));?></p>
 <div class="col-sm-offset-4">
 <p style="color:green;"><?php print_r($this->session->flashdata('update'));?></p>
 </div>
@@ -9,8 +10,12 @@
 <div class="col-sm-offset-4">
 <p style="color:green;"><?php print_r($this->session->flashdata('insert'));?></p>
 </div>
-
- 
+	<div class="form-group">
+    	<form name="delete" class="form-horizontal" action="<?php echo base_url('leads/distribute_leads');?>"  method="POST">
+				
+			<input type="submit" name="delete" class="btn btn-success" value="Auto-Assign Leads">
+		</form>
+	</div>	
 <div class="table-responsive">          
   <table class="table table-hover">
      <thead class="thead-inverse">
@@ -21,6 +26,7 @@
 		<th>Client name</th>
 		 <th>Client Contact</th>
 		<th>Status</th>
+		<th></th>
 		
       </tr>
     </thead>
@@ -39,6 +45,11 @@
 			<td><?php echo $r->mobile;?>
 			</td>
 			<td><?php echo $r->status;?>
+			</td>
+			<td><form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('leads/unassign_lead'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
+				<input type="hidden" name="client_id" value="<?php echo $r->client_id;?>">
+				<input type="submit" name="delete" class="btn btn-danger" value="Unassign Lead">
+			</form>
 			</td>
 						
 			

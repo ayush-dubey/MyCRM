@@ -2,7 +2,7 @@
 <div class="container">
 	<h3 class="student">Update Lead</h3>
 	<p class="para">Note: (*) fields are mandatory</p>
-<form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('leads/update_disposed'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
+<form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('leads/update_leads'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
 <div class="myjumbo">
   
 	<div class="form-group">

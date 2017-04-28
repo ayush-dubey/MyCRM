@@ -36,8 +36,8 @@ class Admin extends CI_Controller {
 		$this->address=$_POST['address'];
 		$this->dob=$_POST['dob'];
 		//Loading Model
-		$this->load->model('Update');
-		$this->Update->update_admin($this);
+		$this->load->model('UpdateProfile');
+		$this->UpdateProfile->update_admin($this);
 		//LOADING vIEW
 		$this->load->view('admin/admin_header');
 		$this->load->view('public/thank');
@@ -51,8 +51,8 @@ class Admin extends CI_Controller {
 	{
 		$this->old_pswd=$_POST['old_pswd'];
 		$this->new_pswd=password_hash($_POST['new_pswd'], PASSWORD_DEFAULT, ['cost' => 12]);
-		$this->load->model('Update');
-		$isUpdated=$this->Update->updatePassword($this);
+		$this->load->model('UpdateProfile');
+		$isUpdated=$this->UpdateProfile->updatePassword($this);
 		if($isUpdated)
 		{
 			$this->session->set_flashdata('registered','password sucessfully changed');
@@ -90,6 +90,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/admin_header');
 			$this->load->view('admin/viewLeads', $data);
 		$this->load->view('admin/admin_footer');
+	}
+	public function comment_history()
+	{
+		$data   = array();
+        $this->load->model('LeadModel');
+		$data['result'] = $this->LeadModel->get_comment_history();
+        
+		$this->load->view('admin/admin_header');
+			$this->load->view('leads/comment_history', $data);
+		$this->load->view('admin/admin_footer');
+	
 	}
 
 
