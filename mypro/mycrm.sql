@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2017 at 08:15 PM
+-- Generation Time: Apr 28, 2017 at 07:10 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -38,18 +38,20 @@ CREATE TABLE `client` (
   `address` varchar(1000) DEFAULT NULL,
   `profession` varchar(100) DEFAULT NULL,
   `follow_up_date` date DEFAULT NULL,
-  `active` varchar(10) NOT NULL
+  `active` varchar(10) NOT NULL DEFAULT 'no',
+  `assigned` varchar(10) NOT NULL DEFAULT 'no',
+  `disposed` varchar(10) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`client_id`, `first_name`, `middle_name`, `last_name`, `gender`, `email`, `mobile`, `status`, `address`, `profession`, `follow_up_date`, `active`) VALUES
-(8, 'gagan', '', 'garg', 'male', 'garggagan97@gmail.com', '7771993737', 'No Status', '77,vijay nagar indore    indore  (452001)  Madhya Pradesh', NULL, '2017-04-14', ''),
-(9, 'ayush', '', 'dubey', 'male', 'ayushdb@gmail.com', '9644614111', 'Converted', '77,vijay nagar indore    indore  (452001)  M.P.', NULL, '2017-04-20', ''),
-(10, 'amit ', '', 'gupta', 'male', 'asmk@asd.com', '3433333333', 'pending', '      Madhya Pradesh', NULL, NULL, ''),
-(13, 'Nidhi', '', 'Dhanora', 'Female', 'ni@pta.com', '4584944897', 'Rejected', 'Palasia Indore', 'Yet to be an Engineer', '2017-04-30', '');
+INSERT INTO `client` (`client_id`, `first_name`, `middle_name`, `last_name`, `gender`, `email`, `mobile`, `status`, `address`, `profession`, `follow_up_date`, `active`, `assigned`, `disposed`) VALUES
+(15, 'gagan', '', 'garg', 'male', 'gagangarg601@gmail.com', '7771997372', 'Pending', '77,vidhya nagar indore     indore  (452001)  Madhya Pradesh', NULL, '0000-00-00', 'no', 'no', 'no'),
+(16, 'ayush', '', 'dubey', 'male', 'ayushdb@gmail.com', '9644614111', 'Converted', 'kaju ka ghar    indore  (4520201)  Madhya Pradesh', NULL, '0000-00-00', 'no', 'no', 'yes'),
+(17, 'amit ', '', 'gupta', 'male', 'amit@gmail.com', '7771997878', 'No Status', '77,vijay nagar indore    indore  (452001)  Madhya Pradesh', NULL, '2017-04-23', 'yes', 'no', 'no'),
+(18, 'nidhi', '', 'dhanora', 'female', 'nidhi@nipta.com', '9865986566', 'no status', 'palasia  indore  indore  (452001)  Madhya Pradesh', NULL, NULL, 'yes', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -63,6 +65,14 @@ CREATE TABLE `comment_history` (
   `date` date NOT NULL,
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comment_history`
+--
+
+INSERT INTO `comment_history` (`client_id`, `employee_id`, `date`, `comment`) VALUES
+(15, 23, '2017-04-28', 'pending'),
+(16, 23, '2017-04-28', 'order rec');
 
 -- --------------------------------------------------------
 
@@ -81,15 +91,10 @@ CREATE TABLE `disposed_leads` (
   `status` varchar(15) NOT NULL DEFAULT 'no status',
   `address` varchar(1000) DEFAULT NULL,
   `profession` varchar(100) DEFAULT NULL,
-  `follow_up_date` date DEFAULT NULL
+  `follow_up_date` date DEFAULT NULL,
+  `active` varchar(10) NOT NULL,
+  `assigned` varchar(10) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `disposed_leads`
---
-
-INSERT INTO `disposed_leads` (`client_id`, `first_name`, `middle_name`, `last_name`, `gender`, `email`, `mobile`, `status`, `address`, `profession`, `follow_up_date`) VALUES
-(12, 'Anupam', '', 'jain', 'male', 'nanunaupam@gmail.com', '7771993737', 'rejected', 'aadarsh ka ghar    indore  (452001)  Madhya Pradesh', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,8 +104,7 @@ INSERT INTO `disposed_leads` (`client_id`, `first_name`, `middle_name`, `last_na
 
 CREATE TABLE `lead_assigned_to` (
   `employee_id` int(11) DEFAULT NULL,
-  `lead_id` int(11) NOT NULL,
-  `status` text NOT NULL
+  `lead_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -137,10 +141,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`employee_id`, `username`, `password`, `first_name`, `last_name`, `middle_name`, `gender`, `dob`, `doj`, `father_name`, `address`, `role`, `email`, `activation_code`, `forgotten_password`, `remember_code`, `last_login`, `active`, `mobile`, `manager_id`) VALUES
-(21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9644614111', 0),
-(22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-24 05:35:50', 0, '9638527410', 0),
-(23, 'ayush', '$2y$12$18cy5FUyBEIy76ptj3EtXundTVAloi7YGMeWL1O7XviyNsfV.gzai', 'Ayush', 'Dubey', '', 'male', '1996-05-10', '2017-02-24', 'Umashanker', 'Navlakha Indore', 'admin', 'ayushdb@gmail.com', NULL, NULL, NULL, '2017-04-27 11:01:38', 0, '9638527410', 0),
-(24, 'amit', '$2y$12$RhRmjp2xH3rTS8aleq5v7uJIfC2qMVM/nN0j.eKo01SFXs/2fKDLa', 'Amit', 'Gupta', '', 'male', '1997-02-07', '2017-12-31', 'wsfqw', 'djfpc  fnodsnc  indore  (452001)  Mizoram', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '0000-00-00 00:00:00', 0, '9638527410', 0);
+(21, 'ayush1', '$2y$12$LyGYZxJTR3LDS42jAeVHueO.n0K0BZmnOiV/x/.cdel.HxXmK8S7e', 'Ayush', 'Dubey', '', '', '1996-05-10', '2016-05-23', 'Umashanker', 'cnskn  dncns  indore  (452001)  Madhya Pradesh', 'employee', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-28 07:39:14', 0, '9644614111', 0),
+(22, 'ayush2', '$2y$12$bE/0gEPgern1CUWDoL16wOUNVXm8TayxvY2ZFafy64mK0kevdyYw2', 'aysh', 'dubey', '', '', '2016-11-02', '2016-10-30', 'ejrewpii`', 'djfpc  fnodsnc  ind  (46545465)  Arunachal Pradesh', 'employee', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-24 05:35:50', 0, '9638527410', 0),
+(23, 'ayush', '$2y$12$18cy5FUyBEIy76ptj3EtXundTVAloi7YGMeWL1O7XviyNsfV.gzai', 'Ayush', 'Dubey', '', 'male', '1996-05-10', '2017-02-24', 'Umashanker', 'Navlakha Indore', 'admin', 'ayushdb@gmail.com', NULL, NULL, NULL, '2017-04-28 09:38:51', 0, '9638527410', 0),
+(24, 'amit', '$2y$12$RhRmjp2xH3rTS8aleq5v7uJIfC2qMVM/nN0j.eKo01SFXs/2fKDLa', 'Amit', 'Gupta', '', 'male', '1997-02-07', '2017-12-31', 'wsfqw', 'djfpc  fnodsnc  indore  (452001)  Mizoram', 'manager', 'asmk@asd.com', NULL, NULL, NULL, '2017-04-28 08:03:53', 0, '9638527410', 0);
 
 --
 -- Indexes for dumped tables
@@ -189,12 +193,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `disposed_leads`
 --
 ALTER TABLE `disposed_leads`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -208,15 +212,15 @@ ALTER TABLE `users`
 -- Constraints for table `comment_history`
 --
 ALTER TABLE `comment_history`
-  ADD CONSTRAINT `add to client` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `add to client` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `add to users ` FOREIGN KEY (`employee_id`) REFERENCES `users` (`employee_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `lead_assigned_to`
 --
 ALTER TABLE `lead_assigned_to`
-  ADD CONSTRAINT `add_to_client` FOREIGN KEY (`lead_id`) REFERENCES `client` (`client_id`),
-  ADD CONSTRAINT `add_to_users` FOREIGN KEY (`employee_id`) REFERENCES `users` (`employee_id`);
+  ADD CONSTRAINT `add_to_client` FOREIGN KEY (`lead_id`) REFERENCES `client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `add_to_users` FOREIGN KEY (`employee_id`) REFERENCES `users` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
