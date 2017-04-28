@@ -40,7 +40,7 @@ class Login extends CI_Controller {
 				
 				//session begins
 				
-				$session_array=array('username'=>$row[0]->username, 'first_name'=>$row[0]->first_name,'middle_name'=>$row[0]->middle_name,
+				$session_array=array('employee_id'=>$row[0]->employee_id,'username'=>$row[0]->username, 'first_name'=>$row[0]->first_name,'middle_name'=>$row[0]->middle_name,
 				'last_name'=>$row[0]->last_name,'gender'=>$row[0]->gender,'dob'=>$row[0]->dob ,'doj'=>$row[0]->doj,'role'=>$row[0]->role,
 				'father_name'=>$row[0]->father_name,'address'=>$row[0]->address,'last_login'=>$row[0]->last_login,'email'=>$row[0]->email,
 				'mobile'=>$row[0]->mobile);	

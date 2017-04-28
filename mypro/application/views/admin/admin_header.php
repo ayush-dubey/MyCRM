@@ -437,13 +437,13 @@
 									
 									</a>	
 
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/distribute_leads');?>" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									New Leads
+									Distribute Leads
 									
 								</a>	
 
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/todays_followup');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Todays Follow up
 									
@@ -464,9 +464,9 @@
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Disposed Fetch Trial
+									Disposed Fetch Leads
 									
 								</a>							
 								<a href="<?php echo base_url('admin/viewLeads');?>">
@@ -486,22 +486,22 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_active_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Active clients
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_expired_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Expire clients
+									Expired clients
 								</a>
 
 								<b class="arrow"></b>
 							</li>											
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('clients/view_hold_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Hold clients
 								</a>
@@ -509,7 +509,7 @@
 								<b class="arrow"></b>
 							</li>						
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('admin/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -655,47 +655,14 @@
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
 										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
 									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-								</div><!-- /.pull-left -->
-
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
+									<div class="pull-left width-50">
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
 										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
 									</div>
 								</div><!-- /.pull-left -->
+								</div><!-- /.pull-left -->
+								
 							</div><!-- /.ace-settings-box -->
 						</div><!-- /.ace-settings-container -->
 

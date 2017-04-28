@@ -59,7 +59,25 @@ class Leads extends CI_Controller {
 			$row=$row->result();
 			$data['mydata']=$row[0];
 			$this->load->view('admin/admin_header');
-			$this->load->view('leads/update',$data);
+			$this->load->view('leads/update_leads',$data);
+			$this->load->view('admin/admin_footer');
+		}
+	}
+	public function edit_disposed_leads()
+	{
+		if($_POST['client']=="")
+		{
+		   	return redirect('leads/view_disposed_leads');
+		}
+		else
+		{	
+			$this->client_id=$_POST['client'];
+			$this->load->model('LeadModel');
+			$row=$this->LeadModel->edit_disposed_leads($this);
+			$row=$row->result();
+			$data['mydata']=$row[0];
+			$this->load->view('admin/admin_header');
+			$this->load->view('leads/update_disposed_leads',$data);
 			$this->load->view('admin/admin_footer');
 		}
 	}
@@ -83,8 +101,13 @@ class Leads extends CI_Controller {
 			$this->status=$_POST['status'];
 			$this->client_id=$_POST['client_id'];
 			$this->follow_up_date=$_POST['follow_up_date'];
+			$this->comment=$_POST['comment'];
 			
-			$this->LeadModel->update_leads($this);
+			date_default_timezone_set("Asia/Kolkata");
+			$date_today= date("Y-m-d");
+			
+				
+			$this->LeadModel->update_leads($this,$date_today);
 			$this->session->set_flashdata('update','Updated successfully...');
 			return redirect('admin/viewLeads');
 		}	
@@ -97,8 +120,20 @@ class Leads extends CI_Controller {
 		$this->LeadModel->delete_leads($this);
 		
 		
-			$this->session->set_flashdata('delete','Deleted  successfully...');
+			$this->session->set_flashdata('delete','Deleted  successfully and moved to disposed leads...');
 			return redirect('admin/viewLeads');
+		
+		
+	}
+	public function delete_disposed_leads()
+	{
+		$this->client_id=$_POST['client'];
+		$this->load->model('LeadModel');
+		$this->LeadModel->delete_disposed_leads($this);
+		
+		
+			$this->session->set_flashdata('delete','Deleted Permanently...');
+			return redirect('leads/view_disposed_leads');
 		
 		
 	}
@@ -151,6 +186,69 @@ class Leads extends CI_Controller {
 			
 			}
 		}			
+		
+	}
+	public function view_disposed_leads()
+	{
+		$data   = array();
+        $this->load->model('LeadModel');
+        $this->load->helper('url');
+        
+        $data['result'] = $this->LeadModel->get_disposed_leads();
+        
+		$this->load->view('admin/admin_header');
+			$this->load->view('leads/view_disposed_leads', $data);
+		$this->load->view('admin/admin_footer');
+	}
+	public function todays_followup()
+	{
+		$data   = array();
+        $this->load->model('LeadModel');
+        $this->load->helper('url');
+        //$this->load->library('acl');
+        $data['result'] = $this->LeadModel->get_todays_followup();
+        
+		$this->load->view('admin/admin_header');
+			$this->load->view('clients/view_clients', $data);
+		$this->load->view('admin/admin_footer');
+	}
+	public function distribute_leads()
+	{
+		$this->load->model('DistributeLead');
+		
+		$count=$this->DistributeLead->get_count();
+		$client_id=$this->DistributeLead->get_client_id();
+		$emp_id=$this->DistributeLead->get_emp_id();
+		$div=($count['client_count'])/($count['emp_count']);	
+		$div=intval($div);
+		$k=0;
+		
+		/*print_r($count); echo "<br>";
+		print_r($count['client_count']); echo "<br>";
+		print_r($count['emp_count']); echo "<br>";
+		print_r($client_id); echo "<br>";
+		print_r($emp_id); echo "<br>";
+		print_r($div); echo "<br>";*/
+		
+		for($i=0;$i<$count['emp_count'];$i++)
+		{
+			for($j=$k;$j<($k+$div);$j++)
+			{
+				$this->DistributeLead->assigned_to($emp_id[$i]->employee_id ,$client_id[$j]->client_id);
+				echo "<br>";
+			}
+			$k=$j;	
+		}	
+		return redirect('Leads/show_distributed_leads');
+	}
+	public function show_distributed_leads()
+	{
+		$this->load->model('DistributeLead');
+		$data   = array();
+		$data['result']=$this->DistributeLead->show_assigned_leads();
+		$this->load->view('admin/admin_header');
+			$this->load->view('leads/view_distributed_leads', $data);
+		$this->load->view('admin/admin_footer');
 		
 	}
    

@@ -78,12 +78,7 @@ class Admin extends CI_Controller {
 			$this->load->view('leads/leads_excel');
 		$this->load->view('admin/admin_footer');	
 	}
-	/*public function viewLeads()
-	{
-		$this->load->view('admin/admin_header');
-			$this->load->view('admin/viewLeads');
-		$this->load->view('admin/admin_footer');	
-	}*/
+	
 	public function viewLeads()
 	{
 		$data   = array();
