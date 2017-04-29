@@ -25,11 +25,11 @@
 		<![endif]-->
 		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-skins.min.css');?>" />
 		<link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-rtl.min.css');?>" />
-		<link href="<?php echo base_url('css1/custom.css'); ?>" rel="stylesheet">
+		
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="<?php echo base_url('assets1/css/ace-ie.min.css');?>" />
 		<![endif]-->
-
+		<link href="<?php echo base_url('css1/custom.css'); ?>" rel="stylesheet">
 		<!-- inline styles related to this page -->
 
 		<!-- ace settings handler -->
@@ -449,24 +449,14 @@
 									
 								</a>
 								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Active Free Trial
-									
-								</a>
-								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Past Free Trial
-									
-								</a>								
+																
 								<a href="<?php echo base_url('admin/importLeads');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
 								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Disposed Fetch Leads
+									Disposed Leads
 									
 								</a>							
 								<a href="<?php echo base_url('admin/viewLeads');?>">
@@ -500,16 +490,9 @@
 
 								<b class="arrow"></b>
 							</li>											
+													
 							<li class="">
-								<a href="<?php echo base_url('clients/view_hold_clients');?>">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Hold clients
-								</a>
-
-								<b class="arrow"></b>
-							</li>						
-							<li class="">
-								<a href="<?php echo base_url('admin/viewLeads');?>">
+								<a href="<?php echo base_url('clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -591,17 +574,7 @@
 						</a>
 						<b class="arrow"></b>
 					</li>								
-					<li class="">			
-						<b class="arrow"></b>
-						<ul class="submenu">
-							<li class="">
-								<a href="faq.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
-								</a>
-								<b class="arrow"></b>
-							</li>
-				</ul><!-- /.nav-list -->
+					<!-- /.nav-list -->
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 				</div>

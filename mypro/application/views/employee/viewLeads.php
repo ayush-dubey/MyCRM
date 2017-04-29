@@ -85,11 +85,7 @@
 					<input type="submit" name="submit" class="btn btn-primary" value="Edit">
 				</form>
 			</td>
-			<td><form name="delete" class="form-horizontal" action="<?php echo base_url('leads/delete_leads');?>"  method="POST">
-			<input type="hidden" name="client" value="<?php echo $r->client_id;?>">
-					<input type="submit" name="delete" class="btn btn-danger" value="Delete">
-				</form>
-			</td>
+			
 		</tr>
 	<?php endforeach; ?>
 	 

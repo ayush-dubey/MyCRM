@@ -47,7 +47,7 @@ class DistributeLead extends CI_Model
 	public function show_assigned_leads()
 	{
 		$result=$this->db->query("select users.first_name as fname,users.middle_name as mname,users.last_name as lname,users.username,
-		client.first_name,client.status,client.middle_name,client.last_name,client.mobile,client.client_id from 
+		client.first_name,client.status,client.middle_name,client.last_name,client.mobile,client.client_id,client.disposed from 
 		users,lead_assigned_to,client where users.employee_id=lead_assigned_to.employee_id and 
 		client.client_id=lead_assigned_to.lead_id");
 		$result=$result->result();

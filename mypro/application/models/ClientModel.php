@@ -14,9 +14,9 @@ class ClientModel extends CI_Model
 		return $result=$result->result();
 	
 	}
-	public function get_hold_clients()
+	public function get_all_clients()
 	{
-		$result=$this->db->query("select * from client where status='pending'");		
+		$result=$this->db->query("select * from client where status='converted'");		
 		return $result=$result->result();
 	
 	}

@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Dashboard - Manager</title>
+		<title>Dashboard - CRM manager</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -437,7 +437,7 @@
 									
 									</a>	
 
-								<a href="<?php echo base_url('leads/distribute_leads');?>" class="dropdown-toggle">
+								<a href="<?php echo base_url('leads/show_distributed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Distribute Leads
 									
@@ -449,24 +449,14 @@
 									
 								</a>
 								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Active Free Trial
-									
-								</a>
-								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Past Free Trial
-									
-								</a>								
+																
 								<a href="<?php echo base_url('manager/importLeads');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
 								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Disposed Fetch Leads
+									Disposed Leads
 									
 								</a>							
 								<a href="<?php echo base_url('manager/viewLeads');?>">
@@ -500,16 +490,9 @@
 
 								<b class="arrow"></b>
 							</li>											
+													
 							<li class="">
-								<a href="<?php echo base_url('clients/view_hold_clients');?>">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Hold clients
-								</a>
-
-								<b class="arrow"></b>
-							</li>						
-							<li class="">
-								<a href="<?php echo base_url('manager/viewLeads');?>">
+								<a href="<?php echo base_url('clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -536,6 +519,7 @@
 						<ul class="submenu">
 							<li class="">
 								<a href="#">
+
 									<i class="menu-icon fa fa-caret-right"></i>
 									Approve Free Trial
 								</a>
@@ -591,17 +575,7 @@
 						</a>
 						<b class="arrow"></b>
 					</li>								
-					<li class="">			
-						<b class="arrow"></b>
-						<ul class="submenu">
-							<li class="">
-								<a href="faq.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
-								</a>
-								<b class="arrow"></b>
-							</li>
-				</ul><!-- /.nav-list -->
+					<!-- /.nav-list -->
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 				</div>
@@ -616,7 +590,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="<?php echo base_url('manager/manager_dashboard');?>">Home</a>
+								<a href="<?php echo base_url('manager/admin_dashboard');?>">Home</a>
 							</li>
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->

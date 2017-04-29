@@ -10,7 +10,7 @@
 </div>
 
  <div class="form-group">
- <form action="<?php echo base_url('leads/filter_by');?>" method="POST">
+ <form action="<?php echo base_url('leads/filter_leads_by');?>" method="POST">
       <label class="control-label col-sm-1">Filter By:  status </label>
       <div class="col-sm-2">          
         <select class="form-control branch" name="status">

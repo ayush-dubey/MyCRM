@@ -8,10 +8,9 @@ class LeadModel extends CI_Model
 		     $this->db->query("insert into client(first_name,middle_name,last_name,email,mobile,address,gender) values('".$data->first_name."','".$data->middle_name."','".$data->last_name."','".$data->email."','".$data->mobile."','".$data->address."','".$data->gender."')");	 
 	}
 	function get_leads() {
-        $this->db->select('*');
-        $this->db->from('client');
-		$this->db->where('disposed','no');
-        $query = $this->db->get();
+       
+		
+        $query = $this->db->query("select * from client where disposed='no' order by follow_up_date");
         return $result = $query->result();
     }
 	
@@ -74,7 +73,7 @@ class LeadModel extends CI_Model
 	}
 	public function get_leads_by_status_date($status,$follow_up_date)
 	{
-		$result=$this->db->query("select * from client where status='".$status."' and follow_up_date='".$follow_up_date."'");		
+		$result=$this->db->query("select * from client where status='".$status."' and follow_up_date='".$follow_up_date."' order by follow_up_date");		
 		return $result=$result->result();
 	
 	}
@@ -84,7 +83,7 @@ class LeadModel extends CI_Model
 		date_default_timezone_set("Asia/Kolkata");
 		$date_today= date("Y-m-d");
 			
-		$result=$this->db->query("select * from client where follow_up_date='".$date_today."'");		
+		$result=$this->db->query("select * from client where follow_up_date='".$date_today."' order by follow_up_date");		
 		return $result=$result->result();
 	
 	}
@@ -93,12 +92,13 @@ class LeadModel extends CI_Model
 		$row=$this->db->query("select users.first_name as fname,users.middle_name as mname,users.last_name as lname,users.username,
 		client.first_name,client.status,client.middle_name,client.last_name,client.mobile,comment,comment_history.date from 
 		users,comment_history,client where users.employee_id=comment_history.employee_id and 
-		client.client_id=comment_history.client_id");
+		client.client_id=comment_history.client_id order by date");
 		$row=$row->result();
 		return $row;
 	}
-	public function update_dipose_to_client($data)
+	public function update_dispose_to_client($data)
 	{
 		$this->db->query("update client set disposed='no' where client_id=".$this->client_id);
 	}
+	
 }

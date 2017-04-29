@@ -26,6 +26,7 @@
 		<th>Client name</th>
 		 <th>Client Contact</th>
 		<th>Status</th>
+		<th>Disposed</th>
 		<th></th>
 		
       </tr>
@@ -46,6 +47,9 @@
 			</td>
 			<td><?php echo $r->status;?>
 			</td>
+			<td><?php echo $r->disposed;?>
+			</td>
+			
 			<td><form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('leads/unassign_lead'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
 				<input type="hidden" name="client_id" value="<?php echo $r->client_id;?>">
 				<input type="submit" name="delete" class="btn btn-danger" value="Unassign Lead">
