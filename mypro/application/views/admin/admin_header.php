@@ -509,30 +509,12 @@
 						</ul>
 					</li>
 					<li class="">
-						<a href="#" class="dropdown-toggle">
+						<a href="<?php echo base_url('registeruser');?>">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Approve </span>
+							<span class="menu-text"> Add New User </span>
 
-							<b class="arrow fa fa-angle-down"></b>
 						</a>
-						<b class="arrow"></b>
-						<ul class="submenu">
-							<li class="">
-								<a href="#">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Approve Free Trial
-								</a>
-								<b class="arrow"></b>
-							</li>
-							<li class="">
-								<a href="#">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Approve bill
-								</a>
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
+						
 					<li class="">
 						<a href="#">
 							<i class="menu-icon fa fa-envelope"></i>
