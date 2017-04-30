@@ -37,11 +37,11 @@ class Manager extends CI_Controller {
 		$this->dob=$_POST['dob'];
 		//Loading Model
 		$this->load->model('UpdateProfile');
-		$this->UpdateProfile->update_admin($this);
+		$this->UpdateProfile->update_user($this);
 		//LOADING vIEW
-		$this->load->view('manager/manager_header');
-		$this->load->view('public/thank');
-		$this->load->view('manager/manager_footer');
+		$this->session->set_flashdata('profile','profile sucessfully updated');
+			
+			return redirect('manager/manager_dashboard');
 	}
 	public function change_password()
 	{
@@ -88,7 +88,7 @@ class Manager extends CI_Controller {
         $data['result'] = $this->LeadModel->get_leads();
         
 		$this->load->view('manager/manager_header');
-			$this->load->view('manager/viewLeads', $data);
+			$this->load->view('leads/viewLeads', $data);
 		$this->load->view('manager/manager_footer');
 	}
 	public function comment_history()

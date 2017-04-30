@@ -1,9 +1,9 @@
-<?php include('manager_header.php')?>
+<?php include('employee_header.php')?>
 <div class="container">
 	<div class="col-sm-offset-4">	
 		<p class="para"><?php print_r($this->session->flashdata('error'));?>	</p>
 	</div>
-<form name="changePassword" class="form-horizontal" action="<?php echo base_url('manager/update_password'); ?>"  onsubmit="return updatePassword()" method="POST">
+<form name="changePassword" class="form-horizontal" action="<?php echo base_url('employee/update_password'); ?>"  onsubmit="return updatePassword()" method="POST">
 <div class="myjumbo" >
   
 	<div class="form-group">
@@ -47,4 +47,4 @@
 
 
 
-<?php include('manager_footer.php')?>
+<?php include('employee_footer.php')?>

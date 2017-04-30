@@ -444,18 +444,7 @@
 									Todays Follow up
 									
 								</a>
-								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Active Free Trial
-									
-								</a>
-								
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Past Free Trial
-									
-								</a>								
+																
 								<a href="<?php echo base_url('employee/importLeads');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
@@ -491,17 +480,9 @@
 								</a>
 
 								<b class="arrow"></b>
-							</li>											
+							</li>																	
 							<li class="">
-								<a href="<?php echo base_url('clients/view_hold_clients');?>">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Hold clients
-								</a>
-
-								<b class="arrow"></b>
-							</li>						
-							<li class="">
-								<a href="<?php echo base_url('employee/viewLeads');?>">
+								<a href="<?php echo base_url('clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -550,11 +531,11 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url("employee/comment_history"); ?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
-								Timeline
+							    Comments history
 							</span>
 						</a>
 						<b class="arrow"></b>

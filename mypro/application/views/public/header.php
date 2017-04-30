@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-phone-square"></i>+91 9644614111</p></div>
+                        <div class="top-number"><p><i class="fa fa-phone-square"></i>+91 7509049805</p></div>
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
@@ -138,7 +138,7 @@
     </div>
   </div>
 <!-- login popup ended....................-->									
-                                                
+                        <li><a href="<?php echo base_url('signup');?>">Sign up</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->

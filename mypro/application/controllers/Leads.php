@@ -160,6 +160,7 @@ class Leads extends CI_Controller {
 			$this->client_id=$_POST['client_id'];
 			$this->follow_up_date=$_POST['follow_up_date'];
 			$this->comment=$_POST['comment'];
+			$this->profession=$_POST['profession'];
 			
 			date_default_timezone_set("Asia/Kolkata");
 			$date_today= date("Y-m-d");

@@ -1,4 +1,4 @@
-<div class="container">
+
 <div class="col-sm-offset-4">
 <p style="color:green;"><?php print_r($this->session->flashdata('update'));?></p>
 </div>
@@ -76,5 +76,4 @@
     </tbody>
   </table>
   </div>
-</div>
 </div>

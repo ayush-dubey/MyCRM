@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2017 <a target="_blank" href="#" title="Free Twitter Bootstrap WordPress Themes and HTML templates">WebMasterAmit & Dubey-Ayush</a>. All Rights Reserved.
+                    &copy; 2017 <a target="_blank" href="#" title="Free Twitter Bootstrap WordPress Themes and HTML templates">WebMasterAmit</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">

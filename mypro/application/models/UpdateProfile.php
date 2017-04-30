@@ -2,7 +2,7 @@
 
 class UpdateProfile extends CI_Model
 {
-	public function update_admin($data)
+	public function update_user($data)
 	{
 		$row=$this->session->userdata('my_session');
 		$this->db->query("update users set first_name='".$data->first_name."', last_name='".$data->last_name."',

@@ -5,7 +5,7 @@ class LeadModel extends CI_Model
 	
 	public function insert_users($data)
 	{			 
-		     $this->db->query("insert into client(first_name,middle_name,last_name,email,mobile,address,gender) values('".$data->first_name."','".$data->middle_name."','".$data->last_name."','".$data->email."','".$data->mobile."','".$data->address."','".$data->gender."')");	 
+		     $this->db->query("insert into client(first_name,middle_name,last_name,email,mobile,address,gender,profession) values('".$data->first_name."','".$data->middle_name."','".$data->last_name."','".$data->email."','".$data->mobile."','".$data->address."','".$data->gender."','".$data->profession."')");	 
 	}
 	function get_leads() {
        
@@ -37,7 +37,7 @@ class LeadModel extends CI_Model
 		
 		$this->db->query("update client set first_name='".$data->first_name."', last_name='".$data->last_name."',
 		middle_name='".$data->middle_name."' , mobile='".$data->mobile."',
-		address='".$data->address."', email='".$data->email."', status='".$data->status."', follow_up_date='".$data->follow_up_date."' where client_id=".$data->client_id);
+		address='".$data->address."', email='".$data->email."', status='".$data->status."', follow_up_date='".$data->follow_up_date."', profession='".$data->profession."' where client_id=".$data->client_id);
 		//For comments table
 		if($data->comment!="")
 		{	
@@ -92,7 +92,7 @@ class LeadModel extends CI_Model
 		$row=$this->db->query("select users.first_name as fname,users.middle_name as mname,users.last_name as lname,users.username,
 		client.first_name,client.status,client.middle_name,client.last_name,client.mobile,comment,comment_history.date from 
 		users,comment_history,client where users.employee_id=comment_history.employee_id and 
-		client.client_id=comment_history.client_id order by date");
+		client.client_id=comment_history.client_id order by date desc");
 		$row=$row->result();
 		return $row;
 	}

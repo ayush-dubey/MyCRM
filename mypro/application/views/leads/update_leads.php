@@ -49,7 +49,7 @@
 	
 	
 	<div class="form-group">
-      <label class="control-label col-sm-4 "> Profession</label>
+      <label class="control-label col-sm-4 ">Profession</label>
       <div class="col-sm-6">          
         <input type="text" name="profession" class="form-control" value="<?php echo $mydata->profession;?>"  >
       </div>

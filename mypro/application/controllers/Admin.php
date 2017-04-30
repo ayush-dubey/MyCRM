@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 		$this->dob=$_POST['dob'];
 		//Loading Model
 		$this->load->model('UpdateProfile');
-		$this->UpdateProfile->update_admin($this);
+		$this->UpdateProfile->update_user($this);
 		//LOADING vIEW
 		$this->load->view('admin/admin_header');
 		$this->load->view('public/thank');
@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
         $data['result'] = $this->LeadModel->get_leads();
         
 		$this->load->view('admin/admin_header');
-			$this->load->view('admin/viewLeads', $data);
+			$this->load->view('leads/viewLeads', $data);
 		$this->load->view('admin/admin_footer');
 	}
 	public function comment_history()

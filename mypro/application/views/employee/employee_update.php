@@ -1,8 +1,8 @@
-<?php include('manager_header.php')?>
+<?php include('employee_header.php')?>
 <div class="container">
 	
 	
-<form name="updateProfileForm" class="form-horizontal" action="<?php echo base_url('manager/update_profile'); ?>"  onsubmit="return validateUpdateProfileForm()" method="POST">
+<form name="updateProfileForm" class="form-horizontal" action="<?php echo base_url('employee/update_profile'); ?>"  onsubmit="return validateUpdateProfileForm()" method="POST">
 <div class="myjumbo" >
   <div class="form-group">
       <label class="control-label col-sm-4">Role:</label>
@@ -94,4 +94,4 @@
 
 
 
-<?php include('manager_footer.php')?>
+<?php include('employee_footer.php')?>

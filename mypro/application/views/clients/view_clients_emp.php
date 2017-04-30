@@ -1,3 +1,4 @@
+<div class="container">
 <div class="col-sm-offset-4">
 <p style="color:green;"><?php print_r($this->session->flashdata('update'));?></p>
 </div>
@@ -9,29 +10,7 @@
 <p style="color:green;"><?php print_r($this->session->flashdata('insert'));?></p>
 </div>
 
- <div class="form-group">
- <form action="<?php echo base_url('leads/filter_leads_by');?>" method="POST">
-      <label class="control-label col-sm-1">Filter By:  status </label>
-      <div class="col-sm-2">          
-        <select class="form-control branch" name="status">
-     <option value="all">All</option>
-     <option value="no status">no status</option>
-     <option value="pending">pending</option>
-     <option value="converted">converted</option>
-     <option value="rejected">rejected</option>
-    </select>
-	
-      </div>
-	  <label class="control-label col-sm-1">Follow up on date: </label>
-	   <div class="col-sm-2">          
-        <input type="date" name="follow_up_date" placeholder="YYYY-MM-DD" >
-      </div>
-	  <input type="submit" value="GO" >
-	  </form>
-    </div>
-	
-	<br><br><br>
-
+ 
 <div class="table-responsive">          
   <table class="table table-hover">
      <thead class="thead-inverse">
@@ -48,7 +27,6 @@
 		<th>Professoin</th>
 		<th>FollowUpDate</th>
 		<th>Status</th>
-		<th></th>
 		<th></th>
       </tr>
     </thead>
@@ -80,20 +58,18 @@
 			</td>
 			<td><?php echo $r->status;?>
 			</td>
+			
 			<td><form name="edit" class="form-horizontal" action="<?php echo base_url('leads/edit');?>"  method="POST">
 					<input type="hidden" name="client" value="<?php echo $r->client_id;?>">
 					<input type="submit" name="submit" class="btn btn-primary" value="Edit">
 				</form>
 			</td>
-			<td><form name="delete" class="form-horizontal" action="<?php echo base_url('leads/delete_leads');?>"  method="POST">
-			<input type="hidden" name="client" value="<?php echo $r->client_id;?>">
-					<input type="submit" name="delete" class="btn btn-danger" value="Delete">
-				</form>
-			</td>
+			
 		</tr>
 	<?php endforeach; ?>
 	 
     </tbody>
   </table>
   </div>
+</div>
 </div>

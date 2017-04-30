@@ -4,7 +4,13 @@
 	<div class="col-sm-offset-4">	
 		<p style="color:green;"><?php print_r($this->session->flashdata('registered'));?>	</p>
 	</div>
-<!--This was for password change-->
+	
+<!--This is for profile update-->	
+	<div class="col-sm-offset-4">	
+		<p style="color:green;"><?php print_r($this->session->flashdata('profile'));?>	</p>
+	</div>
+	
+<!--page started-->
 						<div class="page-header">
 							<h1>
 								Dashboard
