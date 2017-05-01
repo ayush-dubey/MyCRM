@@ -227,26 +227,41 @@ class Leads extends CI_Controller {
 					return redirect('admin/viewLeads');
 				if($rolecheck=="manager")
 					return redirect('manager/viewLeads');
+				if($rolecheck=="employee")
+					return redirect('employee/viewLeads');
 			
 		}
 		else
 		{
 			if($follow_up_date!="" && $status!="all")
 			{
-				$data = array();
-				$data['result'] = $this->LeadModel->get_leads_by_status_date($status,$follow_up_date);
-			
+							
 				if($rolecheck=="admin")
-				{	
+				{
+					$data = array();
+					$data['result'] = $this->LeadModel->get_leads_by_status_date($status,$follow_up_date);
+	
 					$this->load->view('admin/admin_header');
-					$this->load->view('admin/viewLeads', $data);
+					$this->load->view('leads/viewLeads', $data);
 					$this->load->view('admin/admin_footer');
 				}
 				if($rolecheck=="manager")
 				{	
+					$data = array();
+					$data['result'] = $this->LeadModel->get_leads_by_status_date($status,$follow_up_date);
+
 					$this->load->view('manager/manager_header');
-					$this->load->view('manager/viewLeads', $data);
-					$this->load->view('manager/admin_footer');
+					$this->load->view('leads/viewLeads', $data);
+					$this->load->view('manager/manager_footer');
+				}
+				if($rolecheck=="employee")
+				{	
+					$data = array();
+					$data['result'] = $this->LeadModel->get_leads_by_status_date_emp($status,$follow_up_date);
+
+					$this->load->view('employee/employee_header');
+					$this->load->view('leads/viewLeadsEmp', $data);
+					$this->load->view('employee/employee_footer');
 				}
 				
 			}
@@ -256,38 +271,61 @@ class Leads extends CI_Controller {
 			
 				if($status=="all")
 				{
-					$data   = array();
-					$data['result'] = $this->LeadModel->get_leads_by_date($follow_up_date);
+					
 				
 					if($rolecheck=="admin")
-					{	
+					{
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_date($follow_up_date);		
 						$this->load->view('admin/admin_header');
-						$this->load->view('admin/viewLeads', $data);
+						$this->load->view('leads/viewLeads', $data);
 						$this->load->view('admin/admin_footer');
 					}
 					if($rolecheck=="manager")
 					{	
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_date($follow_up_date);
 						$this->load->view('manager/manager_header');
-						$this->load->view('manager/viewLeads', $data);
-						$this->load->view('manager/admin_footer');
+						$this->load->view('leads/viewLeads', $data);
+						$this->load->view('manager/manager_footer');
 					}
+					if($rolecheck=="employee")
+					{
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_date_emp($follow_up_date);		
+						$this->load->view('employee/employee_header');
+						$this->load->view('leads/viewLeadsEmp', $data);
+						$this->load->view('employee/employee_footer');
+					}
+					
 				}
 				if($follow_up_date=="")
 				{
-					$data   = array();
-					$data['result'] = $this->LeadModel->get_leads_by_status($status);
+					
 				
 					if($rolecheck=="admin")
-					{	
+					{
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_status($status);	
 						$this->load->view('admin/admin_header');
-						$this->load->view('admin/viewLeads', $data);
+						$this->load->view('leads/viewLeadsEmp', $data);
 						$this->load->view('admin/admin_footer');
 					}
 					if($rolecheck=="manager")
 					{	
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_status($status);
 						$this->load->view('manager/manager_header');
-						$this->load->view('manager/viewLeads', $data);
-						$this->load->view('manager/admin_footer');
+						$this->load->view('leads/viewLeadsEmp', $data);
+						$this->load->view('manager/manager_footer');
+					}
+					if($rolecheck=="employee")
+					{	
+						$data   = array();
+						$data['result'] = $this->LeadModel->get_leads_by_status_emp($status);
+						$this->load->view('employee/employee_header');
+						$this->load->view('leads/viewLeadsEmp', $data);
+						$this->load->view('employee/employee_footer');
 					}
 				}
 			

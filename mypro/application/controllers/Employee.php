@@ -32,7 +32,7 @@ class Employee extends CI_Controller {
         $data['result'] = $this->EmployeeModel->get_emp_leads();
         
 		$this->load->view('employee/employee_header');
-			$this->load->view('leads/viewLeads', $data);
+			$this->load->view('leads/viewLeadsEmp', $data);
 		$this->load->view('employee/employee_footer');
 	}
 	public function importLeads()
@@ -59,7 +59,7 @@ class Employee extends CI_Controller {
         $data['result'] = $this->EmployeeModel->get_todays_followup();
 		
 			$this->load->view('employee/employee_header');
-			$this->load->view('employee/viewleads', $data);
+			$this->load->view('leads/viewleads', $data);
 			$this->load->view('employee/employee_footer');
 		
 	}

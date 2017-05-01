@@ -100,5 +100,31 @@ class LeadModel extends CI_Model
 	{
 		$this->db->query("update client set disposed='no' where client_id=".$this->client_id);
 	}
+	public function get_leads_by_status_date_emp($status,$follow_up_date)
+	{
+		$row1=$this->session->userdata('my_session');
+		$result=$this->db->query("select * from lead_assigned_to,client where lead_assigned_to.lead_id=client.client_id and 
+		lead_assigned_to.employee_id=".$row1['employee_id']." and status='".$status."' and follow_up_date='".$follow_up_date."'");
+		$result=$result->result();
+		return $result; 
+		
+	}
+	public function get_leads_by_date_emp($follow_up_date)
+	{
+		$row1=$this->session->userdata('my_session');
+		$result=$this->db->query("select * from lead_assigned_to,client where lead_assigned_to.lead_id=client.client_id and 
+		lead_assigned_to.employee_id=".$row1['employee_id']."  and follow_up_date='".$follow_up_date."'");
+		$result=$result->result();
+		return $result; 
+	}
+	public function get_leads_by_status_emp($status)
+	{
+		$row1=$this->session->userdata('my_session');
+		$result=$this->db->query("select * from lead_assigned_to,client where lead_assigned_to.lead_id=client.client_id and 
+		lead_assigned_to.employee_id=".$row1['employee_id']." and status='".$status."'");
+		$result=$result->result();
+		return $result; 
+	}
+		
 	
 }
