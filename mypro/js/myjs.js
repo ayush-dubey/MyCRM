@@ -11,6 +11,19 @@ function validateInsertForm()
     	alert("invalid mobile number");
     	return false;
     }
+	
+	  if(x.pincode.value.length!=6)
+    {
+    	alert("please enter valid pincode");
+    	return false;
+    }
+	 if(isNaN(x.pincode.value))
+   	{
+   		alert("please enter digits in pincode");
+    	return false;
+    }
+
+	
     if(x.password.value.length<6)
     {
     	alert("password should be atleast 6 characters");

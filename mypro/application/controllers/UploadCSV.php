@@ -48,8 +48,11 @@ public function import(){
       if($_FILES["file"]["size"] > 0)
         {
           $file = fopen($filename, "r");
+		  $count=0;
            while (($importdata = fgetcsv($file, 10000, ",")) !== FALSE)
            {
+			   $count++;
+			   if($count==1){continue;}
                   $data = array(
                       //'client_id' => $importdata[0],
 					  'first_name' => $importdata[0],
@@ -58,9 +61,9 @@ public function import(){
 					  'gender' => $importdata[3],
 					  'email' => $importdata[4],
 					  'mobile' => $importdata[5],
-                      'status' =>$importdata[6],
-					  'address' =>$importdata[7],
-					  'profession' =>$importdata[8],
+                      
+					  'address' =>$importdata[6],
+					  'profession' =>$importdata[7],
 					  //'active' =>$importdata[10],
 					 //. 'assigned' =>$importdata[11],
 					  //'disposed' =>$importdata[12],

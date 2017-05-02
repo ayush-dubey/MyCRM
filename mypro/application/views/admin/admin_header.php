@@ -543,9 +543,9 @@
 						<b class="arrow"></b>
 					</li>					
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url('ViewEmployee/get_employee_list');?>">
 							<i class="menu-icon fa fa-wrench"></i>
-							<span class="menu-text"> Configuration </span>
+							<span class="menu-text"> Employees </span>
 						</a>
 						<b class="arrow"></b>
 					</li>					
@@ -577,11 +577,13 @@
 							</li>
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->
-
+							
 						<div class="nav-search" id="nav-search">
-							<form class="form-search">
+							
+							<form  action="<?php echo base_url('leads/mobile_track');?>" class="form-search" method="POST">
+								<label >Mobile Tracker</label>&nbsp;&nbsp;
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="text" placeholder="track anyone....." class="nav-search-input" name="mobile" id="nav-search-input" autocomplete="off" />
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
 							</form>

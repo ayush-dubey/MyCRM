@@ -4,7 +4,9 @@
 	<div class="col-sm-offset-4">	
 		<p style="color:green;"><?php print_r($this->session->flashdata('registered'));?>	</p>
 	</div>
-
+<div class="col-sm-offset-4">	
+		<p style="color:red;"><?php print_r($this->session->flashdata('error'));?>	</p>
+	</div>
 <!--This is for profile change-->
 	
 	

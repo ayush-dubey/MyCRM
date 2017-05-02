@@ -8,20 +8,8 @@
 							<span class="blue bolder">CRM</span>
 							All rights reserved &copy; 2017
 						</span>
-						&nbsp; &nbsp;
-						<span class="action-buttons">
-							<a href="https://twitter.com/login">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="https://www.facebook.com/">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="https://www.rss.com/login">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
+						
+						
 					</div>
 				</div>
 			</div>

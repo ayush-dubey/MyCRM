@@ -9,8 +9,8 @@
 	<div class="form-group">
       <label class="control-label col-sm-4">Username:</label>
       <div class="col-sm-3">
-      <p><?php $row=$this->session->userdata('my_session');
-			echo $row['username'];?>
+    <label class="control-label">  <p><?php $row=$this->session->userdata('my_session');
+			echo $row['username'];?> </label>
 		</p>
 		</div>          
     </div>

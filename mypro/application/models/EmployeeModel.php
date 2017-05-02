@@ -25,4 +25,28 @@ class EmployeeModel extends CI_Model
 		 and lead_assigned_to.employee_id=".$row1['employee_id']." order by follow_up_date");		
 		return $result=$result->result();
 	}
+	public function get_employee_list()
+	{
+		$row=$this->db->query("select * from users ");
+		$row=$row->result();
+		return $row;
+		
+		
+    }
+	public function get_employee($employee_id)
+	{
+		$row=$this->db->query("select * from users where employee_id=".$employee_id);
+		$row=$row->result();
+		return $row;
+	}
+	public function update_employee($data)
+	{
+		$this->db->query("update users set  first_name='".$data->first_name."',middle_name='".$data->middle_name."',last_name='".$data->last_name."', father_name='".$data->father_name."',address='".$data->address."',role='".$data->role."',email='".$data->email."',mobile='".$data->mobile."' where employee_id=".$data->employee_id);
+	}
+	public function delete_employee($employee_id)
+	{
+		$this->db->query("delete from users where employee_id=".$employee_id);
+	}
+	
+	
 }

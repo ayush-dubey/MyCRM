@@ -543,9 +543,9 @@
 						<b class="arrow"></b>
 					</li>					
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url('ViewEmployee/get_employee_list');?>">
 							<i class="menu-icon fa fa-wrench"></i>
-							<span class="menu-text"> Configuration </span>
+							<span class="menu-text"> Employees </span>
 						</a>
 						<b class="arrow"></b>
 					</li>					

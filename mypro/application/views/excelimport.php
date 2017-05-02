@@ -15,7 +15,7 @@ method="post" name="upload_excel" enctype="multipart/form-data">
 <input type="file" name="file" id="file">
 </div>
 <div class="form-group">
-<button type="submit" id="submit" name="import">Import</button>
+<button type="submit" id="submit" name="import" class="btn btn-primary">Import</button>
 </div>
 </div>
 </form>

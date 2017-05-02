@@ -163,7 +163,7 @@ class Leads extends CI_Controller {
 			$this->profession=$_POST['profession'];
 			
 			date_default_timezone_set("Asia/Kolkata");
-			$date_today= date("Y-m-d");
+			$date_today= date("Y-m-d h:i:sa");
 			
 				
 			$this->LeadModel->update_leads($this,$date_today);
@@ -470,6 +470,45 @@ class Leads extends CI_Controller {
 		$this->session->set_flashdata('unassign','Lead Unassigned...');
 		return redirect('Leads/show_distributed_leads');
 	}
-   
+  	public function mobile_track()
+	{
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		$row=array();
+		$mobile=$_POST['mobile'];
+		$this->load->model('LeadModel');
+		$row=$this->LeadModel->mobile_track($mobile);
+		
+		if($row)
+		{
+			$row['result']=$row;
+			if($rolecheck=="admin")
+			{	
+				$this->load->view('admin/admin_header');
+				$this->load->view('leads/viewMobileTracker',$row);
+				$this->load->view('admin/admin_footer');
+			}
+			if($rolecheck=="manager")
+			{	
+				$this->load->view('manager/manager_header');
+				$this->load->view('leads/viewMobileTracker',$row);
+				$this->load->view('manager/manager_footer');
+			}
+			if($rolecheck=="employee")
+			{	
+				$this->load->view('employee/employee_header');
+				$this->load->view('leads/viewMobileTracker',$row);
+				$this->load->view('employee/employee_footer');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('error','Mobile number not found');
+			if($rolecheck=="admin")
+			   return redirect('admin/admin_dashboard');
+		    if($rolecheck=="manager")
+			   return redirect('manager/manager_dashboard');
+		}	
+	}
 }
 

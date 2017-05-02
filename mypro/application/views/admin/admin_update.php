@@ -7,14 +7,14 @@
   <div class="form-group">
       <label class="control-label col-sm-4">Role:</label>
 	  <div class="col-sm-6">
-         <p><?php $row=$this->session->userdata('my_session');echo $row['role'];?></p>
+          <label class="control-label"> <p><?php $row=$this->session->userdata('my_session');echo $row['role'];?></p></label>
 		</div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-4">Username:</label>
       <div class="col-sm-6">
-      <p><?php $row=$this->session->userdata('my_session');
-			echo $row['username'];?>
+       <label class="control-label"> <p><?php $row=$this->session->userdata('my_session');
+			echo $row['username'];?></label>
 		</p>
 		</div>          
     </div>
@@ -41,8 +41,8 @@
      <div class="form-group">
       <label class="control-label col-sm-4 required">Date of Joining  </label>
       <div class="col-sm-6">          
-        <p><?php $row=$this->session->userdata('my_session');
-			echo $row['doj'];?>
+         <label class="control-label"> <p><?php $row=$this->session->userdata('my_session');
+			echo $row['doj'];?></label>
 		</p>
       </div>
     </div>
@@ -50,9 +50,9 @@
     <div class="form-group">
       <label class="control-label col-sm-4 required">Gender:  </label>
       <div class="col-sm-6">          
-        <p><?php $row=$this->session->userdata('my_session');
-			echo $row['gender'];?>
-		</p>
+         <label class="control-label"><?php $row=$this->session->userdata('my_session');
+			echo $row['gender'];?></label>
+		
       </div>
     </div>
     <div class="form-group">

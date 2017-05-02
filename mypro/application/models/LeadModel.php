@@ -125,6 +125,27 @@ class LeadModel extends CI_Model
 		$result=$result->result();
 		return $result; 
 	}
+	public function mobile_track($mobile)
+	{
+		$row=$this->db->query("select * from users where mobile='".$mobile."'");
+		$row=$row->result();
+		if($row)
+		{
+			return $row;
+		}
+		else
+		{
+			$row1=$this->db->query("select * from client where mobile='".$mobile."'");
+			$row1=$row1->result();
+			if($row1)
+			{
+				return $row1;
+			}
+			else
+			    return false;
+			
+		}
+	}
 		
 	
 }
