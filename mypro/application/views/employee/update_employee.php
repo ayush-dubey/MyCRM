@@ -2,12 +2,16 @@
 <div class="container">
 	<h3 class="student">Update Employee Profile</h3>
 	<p class="para">Note: (*) fields are mandatory</p>
-<form name="insertForm" class="form-horizontal" action="<?php echo base_url('viewemployee/update_employee'); ?>"  onsubmit="return validateInsertForm()" method="POST">
+<form name="employeeUpdateForm" class="form-horizontal" action="<?php echo base_url('viewemployee/update_employee'); ?>"  onsubmit="return validateemployeeUpdateForm()" method="POST">
 <div class="myjumbo">
    <div class="form-group">
       <label class="control-label col-sm-4 required"> Designation</label>
       <div class="col-sm-6">          
-        <input type="text" name="role" class="form-control" value="<?php echo $mydata->role;?>" required>
+        <select class="form-control branch" name="role">
+     <option value="0">--select--</option>
+     <option value="manager"<?php if(strcasecmp($mydata->role,"manager")==0){ echo "selected" ;} ?> >manager</option>
+     <option value="employee"<?php if(strcasecmp($mydata->role,"employee")==0){ echo "selected" ;} ?> >employee</option>
+    </select>
       </div>
     </div>
 	<div class="form-group">

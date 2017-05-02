@@ -470,6 +470,12 @@ class Leads extends CI_Controller {
 		$this->session->set_flashdata('unassign','Lead Unassigned...');
 		return redirect('Leads/show_distributed_leads');
 	}
+	public function unassign_all_leads()
+	{
+		$this->load->model('DistributeLead');
+		$this->DistributeLead->unassign_all_leads();
+		return redirect('Leads/show_distributed_leads');
+	}
   	public function mobile_track()
 	{
 		$sesVal=$this->session->userdata('my_session');

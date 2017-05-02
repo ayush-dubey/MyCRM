@@ -45,6 +45,7 @@ class EmployeeModel extends CI_Model
 	}
 	public function delete_employee($employee_id)
 	{
+		$this->db->query("update client set assigned='no' where client_id in (select lead_id from lead_assigned_to where employee_id=".$employee_id." )");
 		$this->db->query("delete from users where employee_id=".$employee_id);
 	}
 	

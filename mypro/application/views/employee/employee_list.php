@@ -1,10 +1,11 @@
+<?php if($this->session->flashdata('update')){?> 
  <div align="center" class="alert alert-success"> 
 <p style="color:green;"><?php print_r($this->session->flashdata('update'));?></p>
-</div>
-
-<div class="col-sm-offset-4">
+</div><?php }?>
+<?php if($this->session->flashdata('delete')){?> 
+<div class="alert alert-danger">
 <p style="color:red;"><?php print_r($this->session->flashdata('delete'));?></p>
-</div>
+</div><?php }?>
 <div class="col-sm-offset-4">
 <p style="color:green;"><?php print_r($this->session->flashdata('insert'));?></p>
 </div>

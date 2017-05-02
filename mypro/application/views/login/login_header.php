@@ -55,12 +55,7 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<?php echo base_url('welcome');?>">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-						
-											
-								
-                        <li><a href="<?php echo base_url('signup');?>">Sign up</a></li>                        
+                                                
                     </ul>
                 </div>
             </div><!--/.container-->

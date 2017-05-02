@@ -86,7 +86,7 @@ class ViewEmployee extends CI_Controller {
 		$this->EmployeeModel->delete_employee($employee_id);
 		
 		
-		$this->session->set_flashdata('delete','Deleted  successfully and moved to disposed leads...');
+		$this->session->set_flashdata('delete','Employee deleted ...');
 			
 			return redirect('viewemployee/get_employee_list');
 	}

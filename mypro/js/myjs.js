@@ -118,3 +118,23 @@ function validateLoginForm()
     	return false;
     }
  }
+function validateemployeeUpdateForm()
+{
+	 var x = document.employeeUpdateForm;
+	 if(x.role.value==0)
+    {
+    	alert("must select one option");
+    	return false;
+    }
+	if(x.mobile.value.length!=10)
+    {
+    	alert("invalid mobile number");
+    	return false;
+    }
+	if(isNaN(x.mobile.value))
+   	{
+   		alert("please enter digits in mobile field");
+    	return false;
+    }
+	 
+}

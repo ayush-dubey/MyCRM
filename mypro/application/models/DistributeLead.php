@@ -58,5 +58,11 @@ class DistributeLead extends CI_Model
 		$this->db->query("delete from lead_assigned_to where lead_id=".$client_id);
 		$this->db->query("update client set assigned='no' where client_id=".$client_id);
 	}
+	public function unassign_all_leads()
+	{
+		$this->db->query("update client set assigned='no'");
+		$this->db->query("truncate table lead_assigned_to");
+		
+	}
 	
 }
