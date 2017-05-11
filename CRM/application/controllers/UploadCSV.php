@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Uploadcsv extends CI_Controller {
@@ -55,15 +55,15 @@ public function import(){
 			   if($count==1){continue;}
                   $data = array(
                       //'client_id' => $importdata[0],
-					  'first_name' => $importdata[0],
-					  'middle_name' => $importdata[1],
-					  'last_name' => $importdata[2],
-					  'gender' => $importdata[3],
-					  'email' => $importdata[4],
-					  'mobile' => $importdata[5],
+					  //'first_name' => $importdata[0],
+					  //'middle_name' => $importdata[1],
+					  //'last_name' => $importdata[2],
+					  //'gender' => $importdata[3],
+					  //'email' => $importdata[4],
+					  'mobile' => $importdata[0],
                       
-					  'address' =>$importdata[6],
-					  'profession' =>$importdata[7],
+					  //'address' =>$importdata[6],
+					  //'profession' =>$importdata[7],
 					  //'active' =>$importdata[10],
 					 //. 'assigned' =>$importdata[11],
 					  //'disposed' =>$importdata[12],

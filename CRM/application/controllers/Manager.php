@@ -1,18 +1,17 @@
-
-<?php
+<?php ob_start();
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Admin extends CI_Controller {
+class Manager extends CI_Controller {
 	
-	public function admin_dashboard()
+	public function manager_dashboard()
 	{
 		$row=$this->session->userdata('my_session');	
-		  if($row['role']=="admin")
+		  if($row['role']=="manager")
 	    {
-			$this->load->view('admin/admin_header');
-			$this->load->view('admin/admin_page');
-			$this->load->view('admin/admin_footer');
+			$this->load->view('manager/manager_header');
+			$this->load->view('manager/manager_page');
+			$this->load->view('manager/manager_footer');
 		}
 		else
 		{
@@ -22,7 +21,7 @@ class Admin extends CI_Controller {
 	}
 	public function update()
 	{
-		$this->load->view('admin/admin_update');
+		$this->load->view('manager/manager_update');
 	}
 	public function update_profile()
 	{
@@ -39,44 +38,44 @@ class Admin extends CI_Controller {
 		$this->load->model('UpdateProfile');
 		$this->UpdateProfile->update_user($this);
 		//LOADING vIEW
-		$this->load->view('admin/admin_header');
-		$this->load->view('public/thank');
-		$this->load->view('admin/admin_footer');
+		$this->session->set_flashdata('profile','profile sucessfully updated');
+			
+			return redirect('manager/manager_dashboard');
 	}
 	public function change_password()
 	{
-		$this->load->view('admin/change_password');
+		$this->load->view('manager/change_password');
 	}
 	public function update_password()
 	{
 		$this->old_pswd=$_POST['old_pswd'];
 		$this->new_pswd=password_hash($_POST['new_pswd'], PASSWORD_DEFAULT, ['cost' => 12]);
-		$this->load->model('UpdateProfile');
-		$isUpdated=$this->UpdateProfile->updatePassword($this);
+		$this->load->model('Update');
+		$isUpdated=$this->Update->updatePassword($this);
 		if($isUpdated)
 		{
 			$this->session->set_flashdata('registered','password sucessfully changed');
 			
-			return redirect('admin/admin_dashboard');
+			return redirect('manager/manager_dashboard');
 		}
 		else
 		{
 			$this->session->set_flashdata('error','password not changed');
 			
-			$this->load->view('admin/change_password');
+			$this->load->view('manager/change_password');
 		}
 	}
 	public function register_leads()
 	{
-		$this->load->view('admin/admin_header');
+		$this->load->view('manager/manager_header');
 			$this->load->view('leads/leads');
-		$this->load->view('admin/admin_footer');
+		$this->load->view('manager/manager_footer');
 	}
 	public function importLeads()
 	{
-		$this->load->view('admin/admin_header');
+		$this->load->view('manager/manager_header');
 			$this->load->view('leads/leads_excel');
-		$this->load->view('admin/admin_footer');	
+		$this->load->view('manager/manager_footer');	
 	}
 	
 	public function viewLeads()
@@ -87,9 +86,9 @@ class Admin extends CI_Controller {
         //$this->load->library('acl');
         $data['result'] = $this->LeadModel->get_leads();
         
-		$this->load->view('admin/admin_header');
+		$this->load->view('manager/manager_header');
 			$this->load->view('leads/viewLeads', $data);
-		$this->load->view('admin/admin_footer');
+		$this->load->view('manager/manager_footer');
 	}
 	public function comment_history()
 	{
@@ -97,9 +96,9 @@ class Admin extends CI_Controller {
         $this->load->model('LeadModel');
 		$data['result'] = $this->LeadModel->get_comment_history();
         
-		$this->load->view('admin/admin_header');
+		$this->load->view('manager/manager_header');
 			$this->load->view('leads/comment_history', $data);
-		$this->load->view('admin/admin_footer');
+		$this->load->view('manager/manager_footer');
 	
 	}
 
