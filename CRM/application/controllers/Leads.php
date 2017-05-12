@@ -11,12 +11,14 @@ class Leads extends CI_Controller {
 		$rolecheck=$sesVal['role'];
 		if($_POST['first_name']=="")
 		{
+			if($rolecheck=="")
+				return redirect('Login');
 		   	if($rolecheck=="admin")
-				return redirect('admin/admin_dashboard');
+				return redirect('Admin/admin_dashboard');
 			if($rolecheck=="manager")
-				return redirect('manager/manager_dashboard');
+				return redirect('Manager/manager_dashboard');
 		   	if($rolecheck=="employee")
-				return redirect('employee/employee_dashboard');
+				return redirect('Employee/employee_dashboard');
 		}
 		else
 		{
@@ -47,11 +49,11 @@ class Leads extends CI_Controller {
 			$this->LeadModel->insert_users($this);
 			$this->session->set_flashdata('insert',' Lead registered successfully');
 			if($rolecheck=="admin")
-				return redirect('admin/viewLeads');
+				return redirect('Admin/viewLeads');
 			if($rolecheck=="manager")
-				return redirect('manager/viewLeads');
+				return redirect('Manager/viewLeads');
 			if($rolecheck=="employee")
-				return redirect('employee/viewLeads');
+				return redirect('Employee/viewLeads');
 			
 			
 		}
@@ -63,21 +65,31 @@ class Leads extends CI_Controller {
 	
 		if($_POST['client']=="")
 		{
+			if($rolecheck=="")
+				return redirect('Login');
 		   	if($rolecheck=="admin")
-				return redirect('admin/viewLeads');
+				return redirect('Admin/viewLeads');
 			if($rolecheck=="manger")
-				return redirect('manager/viewLeads');
+				return redirect('Manager/viewLeads');
 			if($rolecheck=="employee")
-				return redirect('employee/viewLeads');
+				return redirect('Employee/viewLeads');
 			
 		}
 		else
 		{	
 			$this->client_id=$_POST['client'];
+			
 			$this->load->model('LeadModel');
 			$row=$this->LeadModel->edit($this);
-			$row=$row->result();
-			$data['mydata']=$row[0];
+			
+			$row->client=$row->client->result();
+			$row->services=$row->services->result();
+			
+			$data['mydata']=$row->client[0];
+			$data['result']=$row->services;
+			
+			
+			
 			if($rolecheck=="admin")
 			{
 				$this->load->view('admin/admin_header');
@@ -105,7 +117,7 @@ class Leads extends CI_Controller {
 	
 		if($_POST['client']=="")
 		{
-		   	return redirect('leads/view_disposed_leads');
+		   	return redirect('Leads/view_disposed_leads');
 			
 		}
 		else
@@ -134,15 +146,16 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+	    if($rolecheck=="")
+				return redirect('Login'); 
 		if($_POST['client_id']=="")
-		{
+		{			
 		   	if($rolecheck=="admin")
-				return redirect('admin/viewLeads');
+				return redirect('Admin/viewLeads');
 			if($rolecheck=="manager")
-				return redirect('manager/viewLeads');
+				return redirect('Manager/viewLeads');
 			if($rolecheck=="employee")
-				return redirect('employee/viewLeads');
+				return redirect('Employee/viewLeads');
 		}
 		else
 		{	
@@ -160,19 +173,21 @@ class Leads extends CI_Controller {
 			$this->follow_up_date=$_POST['follow_up_date'];
 			$this->comment=$_POST['comment'];
 			$this->profession=$_POST['profession'];
+			$service_id=$this->input->post('services');//array of service id
 			
 			date_default_timezone_set("Asia/Kolkata");
 			$date_today= date("Y-m-d h:i:sa");
 			
-				
+			$this->load->model('ServiceModel');
+			$this->ServiceModel->insert_client_services($service_id,$this->client_id);
 			$this->LeadModel->update_leads($this,$date_today);
 			$this->session->set_flashdata('update','Updated successfully...');
 			if($rolecheck=="admin")
-				return redirect('admin/viewLeads');
+				return redirect('Admin/viewLeads');
 			if($rolecheck=="manager")
-				return redirect('manager/viewLeads');
+				return redirect('Manager/viewLeads');
 			if($rolecheck=="employee")
-				return redirect('employee/viewLeads');
+				return redirect('Employee/viewLeads');
 		}	
 	}
 	
@@ -180,7 +195,9 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+		if($rolecheck=="")
+				return redirect('Login');
+			
 		$this->client_id=$_POST['client'];
 		$this->load->model('LeadModel');
 		$this->LeadModel->delete_leads($this);
@@ -189,21 +206,26 @@ class Leads extends CI_Controller {
 			$this->session->set_flashdata('delete','Deleted  successfully and moved to disposed leads...');
 			
 			if($rolecheck=="admin")
-				return redirect('admin/viewLeads');
+				return redirect('Admin/viewLeads');
 			if($rolecheck=="manager")
-				return redirect('manager/viewLeads');
+				return redirect('Manager/viewLeads');
 			
 		
 		
 	}
 	public function delete_disposed_leads()
 	{
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		if($rolecheck=="")
+				return redirect('Login');
+			
 		$this->client_id=$_POST['client'];
 		$this->load->model('LeadModel');
 		$this->LeadModel->delete_disposed_leads($this);
 		
 		$this->session->set_flashdata('delete','Deleted Permanently...');
-		return redirect('leads/view_disposed_leads');
+		return redirect('Leads/view_disposed_leads');
 		
 		
 	}
@@ -212,7 +234,9 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+	    if($rolecheck=="")
+				return redirect('Login');
+ 			
 		$status=$_POST['status'];
 		$follow_up_date=$_POST['follow_up_date'];
 		$this->load->model('LeadModel');
@@ -223,11 +247,11 @@ class Leads extends CI_Controller {
 		{	
 				
 				if($rolecheck=="admin")
-					return redirect('admin/viewLeads');
+					return redirect('Admin/viewLeads');
 				if($rolecheck=="manager")
-					return redirect('manager/viewLeads');
+					return redirect('Manager/viewLeads');
 				if($rolecheck=="employee")
-					return redirect('employee/viewLeads');
+					return redirect('Employee/viewLeads');
 			
 		}
 		else
@@ -307,7 +331,7 @@ class Leads extends CI_Controller {
 						$data   = array();
 						$data['result'] = $this->LeadModel->get_leads_by_status($status);	
 						$this->load->view('admin/admin_header');
-						$this->load->view('leads/viewLeadsEmp', $data);
+						$this->load->view('leads/viewLeads', $data);
 						$this->load->view('admin/admin_footer');
 					}
 					if($rolecheck=="manager")
@@ -315,7 +339,7 @@ class Leads extends CI_Controller {
 						$data   = array();
 						$data['result'] = $this->LeadModel->get_leads_by_status($status);
 						$this->load->view('manager/manager_header');
-						$this->load->view('leads/viewLeadsEmp', $data);
+						$this->load->view('leads/viewLeads', $data);
 						$this->load->view('manager/manager_footer');
 					}
 					if($rolecheck=="employee")
@@ -336,12 +360,16 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+		if($rolecheck=="")
+				return redirect('Login');
+			
 		$data   = array();
         $this->load->model('LeadModel');
         $this->load->helper('url');
         
         $data['result'] = $this->LeadModel->get_disposed_leads();
+		if($rolecheck=="")
+				return redirect('Login');
         if($rolecheck=="admin")
 		{
 			$this->load->view('admin/admin_header');
@@ -359,7 +387,9 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+	    if($rolecheck=="")
+				return redirect('Login');
+			
 		$data   = array();
         $this->load->model('LeadModel');
         $this->load->helper('url');
@@ -380,6 +410,11 @@ class Leads extends CI_Controller {
 	}
 	public function distribute_leads()
 	{
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+	    if($rolecheck=="")
+				return redirect('Login');
+	
 		
 		$this->load->model('DistributeLead');
 		
@@ -406,6 +441,8 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+		 if($rolecheck=="")
+				return redirect('Login');
 	
 		$this->load->model('DistributeLead');
 		$data   = array();
@@ -425,10 +462,15 @@ class Leads extends CI_Controller {
 	}
 	public function update_disposed()
 	{
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		 if($rolecheck=="")
+				return redirect('Login');
+	
 		
 		if($_POST['client_id']=="")
 		{
-		   	return redirect('leads/view_disposed_leads');
+		   	return redirect('Leads/view_disposed_leads');
 		}
 		else
 		{	
@@ -456,13 +498,17 @@ class Leads extends CI_Controller {
 			$this->LeadModel->update_leads($this,$date_today);
 			$this->session->set_flashdata('update','Updated successfully...');
 			
-			return redirect('leads/view_disposed_leads');
+			return redirect('Leads/view_disposed_leads');
 			
 		}	
 	}
 	public function unassign_lead()
 	{
-		
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		 if($rolecheck=="")
+				return redirect('Login');
+	
 		$client_id=$_POST['client_id'];
 		$this->load->model('DistributeLead');
 		$this->DistributeLead->unassign_lead($client_id);
@@ -471,6 +517,11 @@ class Leads extends CI_Controller {
 	}
 	public function unassign_all_leads()
 	{
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		 if($rolecheck=="")
+				return redirect('Login');
+	
 		$this->load->model('DistributeLead');
 		$this->DistributeLead->unassign_all_leads();
 		return redirect('Leads/show_distributed_leads');
@@ -479,6 +530,9 @@ class Leads extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+	    if($rolecheck=="")
+				return redirect('Login');
+	
 		$row=array();
 		$mobile=$_POST['mobile'];
 		$this->load->model('LeadModel');
@@ -510,9 +564,9 @@ class Leads extends CI_Controller {
 		{
 			$this->session->set_flashdata('error','Mobile number not found');
 			if($rolecheck=="admin")
-			   return redirect('admin/admin_dashboard');
+			   return redirect('Admin/admin_dashboard');
 		    if($rolecheck=="manager")
-			   return redirect('manager/manager_dashboard');
+			   return redirect('Manager/manager_dashboard');
 		}	
 	}
 }

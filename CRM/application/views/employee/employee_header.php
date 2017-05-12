@@ -342,14 +342,14 @@
 								</li>
 
 								<li>
-									<a href="<?php echo base_url("employee/update");?>">
+									<a href="<?php echo base_url("Employee/update");?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>
 								</li>
 								
 								<li>
-									<a href="<?php echo base_url("employee/change_password");?>">
+									<a href="<?php echo base_url("Employee/change_password");?>">
 										<i class="ace-icon fa fa-random"></i>
 										Change Password
 									</a>
@@ -358,7 +358,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="<?php echo base_url('login/logout');?>">
+									<a href="<?php echo base_url('Login/logout');?>">
 										<i class="ace-icon fa fa-power-off"></i>
 										Logout
 									</a>
@@ -412,7 +412,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo base_url('employee/employee_dashboard');?>">
+						<a href="<?php echo base_url('Employee/employee_dashboard');?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -431,7 +431,7 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-									<a href="<?php echo base_url('employee/register_leads');?>">
+									<a href="<?php echo base_url('Employee/register_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Leads
 									
@@ -439,18 +439,18 @@
 
 									
 
-								<a href="<?php echo base_url('employee/todays_followup');?>">
+								<a href="<?php echo base_url('Employee/todays_followup');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Todays Follow up
 									
 								</a>
 																
-								<a href="<?php echo base_url('uploadcsv');?>" >
+								<a href="<?php echo base_url('UploadCSV');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
 															
-								<a href="<?php echo base_url('employee/viewLeads');?>">
+								<a href="<?php echo base_url('Employee/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Leads
 									<b class="arrow"></b>
@@ -467,14 +467,14 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('clients/view_active_clients');?>">
+								<a href="<?php echo base_url('Clients/view_active_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Active clients
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="<?php echo base_url('clients/view_expired_clients');?>">
+								<a href="<?php echo base_url('Clients/view_expired_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Expired clients
 								</a>
@@ -482,7 +482,7 @@
 								<b class="arrow"></b>
 							</li>																	
 							<li class="">
-								<a href="<?php echo base_url('clients/view_all_clients');?>">
+								<a href="<?php echo base_url('Clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -508,7 +508,7 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="<?php echo base_url("employee/comment_history"); ?>">
+						<a href="<?php echo base_url("Employee/comment_history"); ?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
@@ -556,7 +556,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="<?php echo base_url('employee/employee_dashboard');?>">Home</a>
+								<a href="<?php echo base_url('Employee/employee_dashboard');?>">Home</a>
 							</li>
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->

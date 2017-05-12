@@ -11,7 +11,12 @@ class ExcelDataInsert extends CI_Controller
 	}	
 	
 	public	function ExcelDataAdd()	
-	{  
+	{ 
+		$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+		if($rolecheck=="")
+			return redirect('Login');
+		
 		//Path of files were you want to upload on localhost (C:/xampp/htdocs/ProjectName/uploads/excel/)	 
          $configUpload['upload_path'] = FCPATH.'uploads/excel/';
          $configUpload['allowed_types'] = 'xls|xlsx|csv';

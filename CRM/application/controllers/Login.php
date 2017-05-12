@@ -7,15 +7,15 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
-			$message['msg']="";
-			$this->load->view('login/login',$message);
+			$this->session->set_flashdata('error','');
+			$this->load->view('login/login');
 			
 	}
 	public function check_login()
 	{
 		if($_POST==null)
 		{
-			return redirect('login');
+			return redirect('Login');
 		}
 		else
 		{		
@@ -47,18 +47,18 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('my_session',$session_array);
 				
 					if($_POST['mylist']=="admin")
-						return redirect('admin/admin_dashboard');
+						return redirect('Admin/admin_dashboard');
 					if($_POST['mylist']=="manager")
-						return redirect('manager/manager_dashboard');
+						return redirect('Manager/manager_dashboard');
 					if($_POST['mylist']=="employee")
-						return redirect('employee/employee_dashboard');
+						return redirect('Employee/employee_dashboard');
 				
 			}
 			else
 			{	
 				
-			   $message['msg']="invalid username or password";
-				$this->load->view('login/login',$message);
+			  $this->session->set_flashdata('error','invalid username or password');
+				$this->load->view('login/login');
 				//return redirect('login/index',$message);
 			  
 			}
@@ -71,7 +71,7 @@ class Login extends CI_Controller {
 	{
 		
 		$this->session->unset_userdata('my_session');
-		return redirect('welcome');
+		return redirect('Welcome');
 	}	
 	
 

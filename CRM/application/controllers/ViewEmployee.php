@@ -7,6 +7,9 @@ class ViewEmployee extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+		if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
+		
 		$this->load->model('EmployeeModel');
 		$row=$this->EmployeeModel->get_employee_list();
 		$row['result']=$row;
@@ -28,6 +31,9 @@ class ViewEmployee extends CI_Controller {
 		$row=array();
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+		if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
+		
 		$this->load->model('EmployeeModel');
 		$employee_id=$_POST['employee_id'];
 		$row=$this->EmployeeModel->get_employee($employee_id);
@@ -50,7 +56,9 @@ class ViewEmployee extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+	    if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
+		
 		if($_POST['employee_id']=="")
 		{
 		   	
@@ -71,16 +79,18 @@ class ViewEmployee extends CI_Controller {
 			$this->role=$_POST['role'];
 			$this->employee_id=$_POST['employee_id'];
 			
-		$this->EmployeeModel->update_employee($this);
+		    $this->EmployeeModel->update_employee($this);
 			$this->session->set_flashdata('update','Updated successfully...');
-			return redirect('viewemployee/get_employee_list');
+			return redirect('ViewEmployee/get_employee_list');
 		}	
 	}
 	public function delete_emp()
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-	
+		if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
+		
 		$employee_id=$_POST['employee_id'];
 		$this->load->model('EmployeeModel');
 		$this->EmployeeModel->delete_employee($employee_id);
@@ -88,7 +98,7 @@ class ViewEmployee extends CI_Controller {
 		
 		$this->session->set_flashdata('delete','Employee deleted ...');
 			
-			return redirect('viewemployee/get_employee_list');
+			return redirect('ViewEmployee/get_employee_list');
 	}
 	
 

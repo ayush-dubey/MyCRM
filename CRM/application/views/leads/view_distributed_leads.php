@@ -12,13 +12,13 @@
 </div>
 	<div class="form-group">
 	
-    	<form name="delete" class="form-horizontal" action="<?php echo base_url('leads/distribute_leads');?>"  method="POST">
+    	<form name="delete" class="form-horizontal" action="<?php echo base_url('Leads/distribute_leads');?>"  method="POST">
 				
 			<input type="submit" name="delete" class="btn btn-success" value="Auto-Assign Leads">
 		</form>
 			</div>
 	<div class="form-group">
-    	<form name="tuncate" class="form-horizontal" action="<?php echo base_url('leads/unassign_all_leads');?>"  method="POST">
+    	<form name="tuncate" class="form-horizontal" action="<?php echo base_url('Leads/unassign_all_leads');?>"  method="POST">
 				
 			<input type="submit" name="truncate" class="btn btn-danger" value="Unassign All Leads">
 		</form>

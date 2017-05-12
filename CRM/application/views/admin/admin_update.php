@@ -2,7 +2,7 @@
 <div class="container">
 	
 	
-<form name="updateProfileForm" class="form-horizontal" action="<?php echo base_url('admin/update_profile'); ?>"  onsubmit="return validateUpdateProfileForm()" method="POST">
+<form name="updateProfileForm" class="form-horizontal" action="<?php echo base_url('Admin/update_profile'); ?>"  onsubmit="return validateUpdateProfileForm()" method="POST">
 <div class="myjumbo" >
   <div class="form-group">
       <label class="control-label col-sm-4">Role:</label>

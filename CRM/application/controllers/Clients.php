@@ -12,7 +12,8 @@ class Clients extends CI_Controller {
         $this->load->model('ClientModel');
         $this->load->helper('url');
         //$this->load->library('acl');
-        
+        if($rolecheck=="")
+			return redirect('Login');
         if($rolecheck=="admin")
 		{	$data['result'] = $this->ClientModel->get_active_clients();
 			$this->load->view('admin/admin_header');
@@ -36,7 +37,10 @@ class Clients extends CI_Controller {
 	{
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
-			$data   = array();
+		if($rolecheck=="")
+			return redirect('Login');
+		
+		$data   = array();
         $this->load->model('ClientModel');
         $this->load->helper('url');
         //$this->load->library('acl');
@@ -69,7 +73,8 @@ class Clients extends CI_Controller {
         $this->load->model('ClientModel');
         $this->load->helper('url');
         //$this->load->library('acl');
-        
+        if($rolecheck=="")
+			return redirect('Login');
         if($rolecheck=="admin")
 		{	$data['result'] = $this->ClientModel->get_all_clients();
 			$this->load->view('admin/admin_header');

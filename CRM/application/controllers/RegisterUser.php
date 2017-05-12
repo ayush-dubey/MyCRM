@@ -8,6 +8,9 @@ class RegisterUser extends CI_Controller {
 	{   
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+		if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
+		
 		if($rolecheck=="admin")
 		{		
 			$this->load->view('admin/admin_header');
@@ -51,13 +54,15 @@ class RegisterUser extends CI_Controller {
 		$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
 
+		if($rolecheck!="admin" && $rolecheck!="manager")
+			return redirect('Login');
 		
 		if($_POST['username']=="")
 		{
 		   	if($rolecheck=="admin")
-				return redirect('admin/admin_dashboard');
+				return redirect('Admin/admin_dashboard');
 			if($rolecheck=="manager")
-				return redirect('manager/manager_dashboard');
+				return redirect('Manager/manager_dashboard');
 		}
 		else
 		{

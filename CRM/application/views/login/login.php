@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
-						    <div style="color:red;"><?php echo $msg?></div>
+						    <div style="color:red;"><?php echo $this->session->flashdata('error'); ?></div>
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>Login to our site</h3>
@@ -18,7 +18,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form name="loginForm" action="<?php echo base_url('login/check_login');?>"  onsubmit="return validateLoginForm()" method="POST" class="login-form">
+			                    <form name="loginForm" action="<?php echo base_url('Login/check_login');?>"  onsubmit="return validateLoginForm()" method="POST" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">

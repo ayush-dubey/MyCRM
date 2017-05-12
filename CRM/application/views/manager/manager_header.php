@@ -412,7 +412,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo base_url('manager/manager_dashboard');?>">
+						<a href="<?php echo base_url('Manager/manager_dashboard');?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -431,35 +431,35 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-									<a href="<?php echo base_url('manager/register_leads');?>">
+									<a href="<?php echo base_url('Manager/register_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Leads
 									
 									</a>	
 
-								<a href="<?php echo base_url('leads/show_distributed_leads');?>">
+								<a href="<?php echo base_url('Leads/show_distributed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Distribute Leads
 									
 								</a>	
 
-								<a href="<?php echo base_url('leads/todays_followup');?>">
+								<a href="<?php echo base_url('Leads/todays_followup');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Todays Follow up
 									
 								</a>
 								
 																
-								<a href="<?php echo base_url('uploadcsv');?>" >
+								<a href="<?php echo base_url('UploadCSV');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
-								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
+								<a href="<?php echo base_url('Leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Disposed Leads
 									
 								</a>							
-								<a href="<?php echo base_url('manager/viewLeads');?>">
+								<a href="<?php echo base_url('Manager/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Leads
 									<b class="arrow"></b>
@@ -476,14 +476,14 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('clients/view_active_clients');?>">
+								<a href="<?php echo base_url('Clients/view_active_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Active clients
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="<?php echo base_url('clients/view_expired_clients');?>">
+								<a href="<?php echo base_url('Clients/view_expired_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Expired clients
 								</a>
@@ -492,7 +492,7 @@
 							</li>											
 													
 							<li class="">
-								<a href="<?php echo base_url('clients/view_all_clients');?>">
+								<a href="<?php echo base_url('Clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -509,7 +509,7 @@
 						</ul>
 					</li>
 					<li class="">
-						<a href="<?php echo base_url('registeruser');?>">
+						<a href="<?php echo base_url('RegisterUser');?>">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Add New User </span>
 
@@ -525,7 +525,7 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="<?php echo base_url('manager/comment_history');?>">
+						<a href="<?php echo base_url('Manager/comment_history');?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
@@ -573,7 +573,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="<?php echo base_url('manager/admin_dashboard');?>">Home</a>
+								<a href="<?php echo base_url('Manager/manager_dashboard');?>">Home</a>
 							</li>
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->

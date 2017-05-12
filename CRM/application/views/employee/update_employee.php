@@ -2,7 +2,7 @@
 <div class="container">
 	<h3 class="student">Update Employee Profile</h3>
 	<p class="para">Note: (*) fields are mandatory</p>
-<form name="employeeUpdateForm" class="form-horizontal" action="<?php echo base_url('viewemployee/update_employee'); ?>"  onsubmit="return validateemployeeUpdateForm()" method="POST">
+<form name="employeeUpdateForm" class="form-horizontal" action="<?php echo base_url('ViewEmployee/update_employee'); ?>"  onsubmit="return validateemployeeUpdateForm()" method="POST">
 <div class="myjumbo">
    <div class="form-group">
       <label class="control-label col-sm-4 required"> Designation</label>

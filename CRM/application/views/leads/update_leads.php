@@ -2,31 +2,34 @@
 <div class="container">
 	<h3 class="student">Update Lead</h3>
 	<p class="para">Note: (*) fields are mandatory</p>
-<form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('leads/update_leads'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
+<form name="leadRegisterForm" class="form-horizontal" action="<?php echo base_url('Leads/update_leads'); ?>"  onsubmit="return validateLeadRegisterForm()" method="POST">
 <div class="myjumbo">
   
 	<div class="form-group">
-      <label class="control-label col-sm-4 required">Name</label>
+      <label class="control-label col-sm-4 ">Name</label>
       <div class="col-sm-2">
-        <input type="text" name="first_name" class="form-control" value="<?php echo $mydata->first_name;?>" required>
+        <input type="text" name="first_name" class="form-control" value="<?php echo $mydata->first_name;?>" >
       </div>
 	  <div class="col-sm-2">
         <input type="text" name="middle_name" class="form-control" value="<?php echo $mydata->middle_name;?>" >
       </div>
 	  <div class="col-sm-2">
-        <input type="text" name="last_name" class="form-control" value="<?php echo $mydata->last_name;?>" required>
+        <input type="text" name="last_name" class="form-control" value="<?php echo $mydata->last_name;?>" >
       </div>
     </div>
     
 	
-     
-	
     <div class="form-group">
-      <label class="control-label col-sm-4 required">Gender:  </label>
-      <div class="col-sm-6">          
-		<input type="text" name="gender" class="form-control" value="<?php echo $mydata->gender;?>" readonly>
-     </div>
-    </div>
+      <label class="control-label col-sm-4 ">Gender</label>
+		<div class="col-sm-6">          
+			<select class="form-control branch" name="gender">
+			<option <?php if(strcasecmp($mydata->gender,"Male")==0){ echo "selected" ;} ?> value="Male">Male</option>
+			<option <?php if(strcasecmp($mydata->gender,"Female")==0){ echo "selected" ; } ?> value="Female">Female</option>
+			</select>
+			
+      </div>
+	  </div> 
+	
     
     <div class="form-group">
       <label class="control-label col-sm-4 required"> contact number</label>
@@ -35,9 +38,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-4 required"> email address </label>
+      <label class="control-label col-sm-4 "> email address </label>
       <div class="col-sm-6">          
-        <input type="email" name="email" class="form-control" value="<?php echo $mydata->email;?>" required>
+        <input type="email" name="email" class="form-control" value="<?php echo $mydata->email;?>" >
       </div>
     </div>
     <div class="form-group">
@@ -75,6 +78,12 @@
 		<div class="form-group">
 			<label for="comment">Comment:</label>
 			<textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
+		</div>
+		
+		<div class="form-group">
+			<label for="Services">Services</label><br>
+			<?php foreach($result  as $r){ ?><div class="col-sm-3"><input type="checkbox" name="services[]" value="<?php echo $r->service_id;?>" ><?php echo $r->service_name;?></div><?php } ?>
+			
 		</div>
 
 	<div class="form-group">        

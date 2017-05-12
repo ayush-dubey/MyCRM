@@ -58,7 +58,7 @@
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo base_url('welcome');?>">Home</a></li>
+                        <li class="active"><a href="<?php echo base_url();?>">Home</a></li>
                         <li><a href="#bottom">About Us</a></li>
                         <li><a href="#services">Services</a></li>
 						
@@ -69,7 +69,7 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-	  <form name="loginForm" action="<?php echo base_url('login/check_login');?>" method="post" onsubmit="return validateLoginForm()">
+	  <form name="loginForm" action="<?php echo base_url('Login/check_login');?>" method="post" onsubmit="return validateLoginForm()">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>

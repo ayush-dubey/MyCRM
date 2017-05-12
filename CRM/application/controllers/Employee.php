@@ -13,11 +13,15 @@ class Employee extends CI_Controller {
 		}
 		else
 		{
-			return redirect('login');
+			return redirect('Login');
 		}	 		 
 	}
     public function settings()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+			
 		$this->load->view('employee/employee_header');	
 		$this->load->view('settings');
 		$this->load->view('employee/employee_footer');
@@ -25,6 +29,10 @@ class Employee extends CI_Controller {
 	
 	public function viewLeads()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$data   = array();
         $this->load->model('EmployeeModel');
         $this->load->helper('url');
@@ -32,30 +40,39 @@ class Employee extends CI_Controller {
         $data['result'] = $this->EmployeeModel->get_emp_leads();
         
 		$this->load->view('employee/employee_header');
-			$this->load->view('leads/viewLeadsEmp', $data);
+		$this->load->view('leads/viewLeadsEmp', $data);
 		$this->load->view('employee/employee_footer');
 	}
 	public function importLeads()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$this->load->view('employee/employee_header');
 			$this->load->view('leads/leads_excel');
 		$this->load->view('employee/employee_footer');	
 	}
 	public function register_leads()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$this->load->view('employee/employee_header');
 			$this->load->view('leads/leads');
 		$this->load->view('employee/employee_footer');
 	}
 	public function todays_followup()  
 	{
-		$sesVal=$this->session->userdata('my_session');
-		$rolecheck=$sesVal['role'];
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
 	
 		$data   = array();
         $this->load->model('EmployeeModel');
         $this->load->helper('url');
-        //$this->load->library('acl');
+        
         $data['result'] = $this->EmployeeModel->get_todays_followup();
 		
 			$this->load->view('employee/employee_header');
@@ -65,6 +82,10 @@ class Employee extends CI_Controller {
 	}
 	public function comment_history()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$data   = array();
         $this->load->model('LeadModel');
 		$data['result'] = $this->LeadModel->get_comment_history();
@@ -76,11 +97,19 @@ class Employee extends CI_Controller {
 	}
 	public function change_password()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$this->load->view('employee/change_password');
 	}
 	
 	public function update_password()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		if($_POST['old_pswd']!="")
 		{
 			$this->old_pswd=$_POST['old_pswd'];
@@ -91,7 +120,7 @@ class Employee extends CI_Controller {
 			{
 				$this->session->set_flashdata('registered','password sucessfully changed');
 				
-				return redirect('employee/employee_dashboard');
+				return redirect('Employee/employee_dashboard');
 			}
 			else
 			{
@@ -101,15 +130,23 @@ class Employee extends CI_Controller {
 			}
 		}
 		else
-			return redirect('employee/change_password');
+			return redirect('Employee/change_password');
 	}
 	
 	public function update()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		$this->load->view('employee/employee_update');
 	}
 	public function update_profile()
 	{
+		$row=$this->session->userdata('my_session');		
+		if($row['role']!="employee")
+			return redirect('Login');
+	
 		//Using Form Entries
 		if($_POST['first_name']!="")
 		{
@@ -126,10 +163,10 @@ class Employee extends CI_Controller {
 			$this->UpdateProfile->update_user($this);
 			//LOADING vIEW
 			$this->session->set_flashdata('profile','profile updated sucessfully...');
-			return redirect('employee/employee_dashboard');
+			return redirect('Employee/employee_dashboard');
 		}
 		else 
-			return redirect('employee/employee_dashboard');
+			return redirect('Employee/employee_dashboard');
 	}
 	
 }

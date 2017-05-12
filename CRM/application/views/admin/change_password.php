@@ -3,7 +3,7 @@
 	<div class="col-sm-offset-4">	
 		<p class="para"><?php print_r($this->session->flashdata('error'));?>	</p>
 	</div>
-<form name="changePassword" class="form-horizontal" action="<?php echo base_url('admin/update_password'); ?>"  onsubmit="return updatePassword()" method="POST">
+<form name="changePassword" class="form-horizontal" action="<?php echo base_url('Admin/update_password'); ?>"  onsubmit="return updatePassword()" method="POST">
 <div class="myjumbo" >
   
 	<div class="form-group">

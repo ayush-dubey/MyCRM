@@ -1,7 +1,7 @@
 <div class="container">
 	<h3 class="student">Register New User</h3>
 	<p class="para">Note: (*) fields are mandatory</p>
-<form name="insertForm" class="form-horizontal" action="<?php echo base_url('registeruser/insert'); ?>"  onsubmit="return validateInsertForm()" method="POST">
+<form name="insertForm" class="form-horizontal" action="<?php echo base_url('RegisterUser/insert'); ?>"  onsubmit="return validateInsertForm()" method="POST">
 <div class="myjumbo" >
   <div class="form-group">
       <label class="control-label col-sm-4 required">Register user as</label>

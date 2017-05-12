@@ -24,8 +24,9 @@ class LeadModel extends CI_Model
 	}
 	public function edit($data)
 	{
-		$row=$this->db->query("select * from client where client_id=".$data->client_id);
-		return $row;
+		$this->client=$this->db->query("select * from client where client_id=".$data->client_id);
+		$this->services=$this->db->query("select * from services");
+		return $this;
 	}
 	public function edit_disposed_leads($data)
 	{
@@ -37,7 +38,7 @@ class LeadModel extends CI_Model
 		
 		$this->db->query("update client set first_name='".$data->first_name."', last_name='".$data->last_name."',
 		middle_name='".$data->middle_name."' , mobile='".$data->mobile."',
-		address='".$data->address."', email='".$data->email."', status='".$data->status."', follow_up_date='".$data->follow_up_date."', profession='".$data->profession."' where client_id=".$data->client_id);
+		address='".$data->address."', email='".$data->email."', status='".$data->status."', follow_up_date='".$data->follow_up_date."', profession='".$data->profession."', gender='".$data->gender."' where client_id=".$data->client_id);
 		//For comments table
 		if($data->comment!="")
 		{	

@@ -342,14 +342,14 @@
 								</li>
 
 								<li>
-									<a href="<?php echo base_url("admin/update");?>">
+									<a href="<?php echo base_url("Admin/update");?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>
 								</li>
 								
 								<li>
-									<a href="<?php echo base_url("admin/change_password");?>">
+									<a href="<?php echo base_url("Admin/change_password");?>">
 										<i class="ace-icon fa fa-random"></i>
 										Change Password
 									</a>
@@ -358,7 +358,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="<?php echo base_url('login/logout');?>">
+									<a href="<?php echo base_url('Login/logout');?>">
 										<i class="ace-icon fa fa-power-off"></i>
 										Logout
 									</a>
@@ -412,7 +412,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo base_url('admin/admin_dashboard');?>">
+						<a href="<?php echo base_url('Admin/admin_dashboard');?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -431,35 +431,35 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-									<a href="<?php echo base_url('admin/register_leads');?>">
+									<a href="<?php echo base_url('Admin/register_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add New Leads
 									
 									</a>	
 
-								<a href="<?php echo base_url('leads/show_distributed_leads');?>">
+								<a href="<?php echo base_url('Leads/show_distributed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Distribute Leads
 									
 								</a>	
 
-								<a href="<?php echo base_url('leads/todays_followup');?>">
+								<a href="<?php echo base_url('Leads/todays_followup');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Todays Follow up
 									
 								</a>
 								
 																
-								<a href="<?php echo base_url('uploadcsv');?>" >
+								<a href="<?php echo base_url('UploadCSV');?>" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									Auto Fetch Leads									
 								</a>								
-								<a href="<?php echo base_url('leads/view_disposed_leads');?>">
+								<a href="<?php echo base_url('Leads/view_disposed_leads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Disposed Leads
 									
 								</a>							
-								<a href="<?php echo base_url('admin/viewLeads');?>">
+								<a href="<?php echo base_url('Admin/viewLeads');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View Leads
 									<b class="arrow"></b>
@@ -476,14 +476,14 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('clients/view_active_clients');?>">
+								<a href="<?php echo base_url('Clients/view_active_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Active clients
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="<?php echo base_url('clients/view_expired_clients');?>">
+								<a href="<?php echo base_url('Clients/view_expired_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Expired clients
 								</a>
@@ -492,7 +492,7 @@
 							</li>											
 													
 							<li class="">
-								<a href="<?php echo base_url('clients/view_all_clients');?>">
+								<a href="<?php echo base_url('Clients/view_all_clients');?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									All clients
 								</a>
@@ -509,7 +509,7 @@
 						</ul>
 					</li>
 					<li class="">
-						<a href="<?php echo base_url('registeruser');?>">
+						<a href="<?php echo base_url('RegisterUser');?>">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text">Add New User </span>
 
@@ -525,7 +525,7 @@
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="<?php echo base_url('admin/comment_history');?>">
+						<a href="<?php echo base_url('Admin/comment_history');?>">
 							<i class="menu-icon fa fa-check"></i>
 
 							<span class="menu-text">
@@ -550,14 +550,34 @@
 						<b class="arrow"></b>
 					</li>					
 					<li class="">
-						<a href="#">
-							<i class="menu-icon fa fa-paperclip"></i>
-							<span class="menu-text">
-								Tip Archive
-							</span>
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<span class="menu-text"> Services </span>
+							<b class="arrow fa fa-angle-down"></b>
 						</a>
 						<b class="arrow"></b>
-					</li>								
+						<ul class="submenu">
+							<li class="">
+								<a href="<?php echo base_url('Services');?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Add New Service
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url('Services/view');?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									View Services
+								</a>
+
+								<b class="arrow"></b>
+							</li>											
+													
+													
+							
+							
+						</ul>
+					</li>						
 					<!-- /.nav-list -->
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
@@ -573,14 +593,14 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="<?php echo base_url('admin/admin_dashboard');?>">Home</a>
+								<a href="<?php echo base_url('Admin/admin_dashboard');?>">Home</a>
 							</li>
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->
 							
 						<div class="nav-search" id="nav-search">
 							
-							<form  action="<?php echo base_url('leads/mobile_track');?>" class="form-search" method="POST">
+							<form  action="<?php echo base_url('Leads/mobile_track');?>" class="form-search" method="POST">
 								<label >Mobile Tracker</label>&nbsp;&nbsp;
 								<span class="input-icon">
 									<input type="text" placeholder="track anyone....." class="nav-search-input" name="mobile" id="nav-search-input" autocomplete="off" />

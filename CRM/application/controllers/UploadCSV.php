@@ -14,6 +14,10 @@ public function index()
 {
 	$sesVal=$this->session->userdata('my_session');
 		$rolecheck=$sesVal['role'];
+	
+	if($rolecheck=="")
+		return redirect('Login');
+	
 	if($rolecheck=="admin")	
 	{	
 		$this->data['view_data']= $this->welcome->view_data();
@@ -38,10 +42,21 @@ public function index()
 }
 
 public function importbulkemail(){
+	$sesVal=$this->session->userdata('my_session');
+		$rolecheck=$sesVal['role'];
+	if($rolecheck=="")
+		return redirect('Login');
+	
     $this->load->view('excelimport');
 }
 
-public function import(){
+public function import()
+{
+	$sesVal=$this->session->userdata('my_session');
+	$rolecheck=$sesVal['role'];
+	if($rolecheck=="")
+		return redirect('Login');
+	
  if(isset($_POST["import"]))
   {
       $filename=$_FILES["file"]["tmp_name"];
